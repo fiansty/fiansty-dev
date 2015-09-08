@@ -23,7 +23,7 @@ var Page = React.createClass({
             "background": this.props.background
         };
         return (
-            <div className="page" style={style}>he213123123123123o world</div>
+            <div className="page" style={style}>hello new World</div>
         );
     }
 });
