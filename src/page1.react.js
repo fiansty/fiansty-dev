@@ -19,6 +19,12 @@ var Page1 = React.createClass({
 
     },
     componentDidMount: function () {
+        this._play();
+    },
+    componentWillUnmount: function () {
+        clearTimeout(this.state.timeout);
+    },
+    _play: function () {
         var me = this;
         this.state.timeout = setTimeout(function () {
             Q.fcall(me._sec1Animate)
@@ -28,10 +34,7 @@ var Page1 = React.createClass({
                 .catch(function (e) {
                     console.error(e);
                 }).done();
-        }, 1000);
-    },
-    componentWillUnmount: function () {
-        clearTimeout(this.state.timeout);
+        }, 500);
     },
     _getDeg: function (start, limit, step) {
         var start = start,
