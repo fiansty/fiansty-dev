@@ -1,0 +1,41 @@
+.page1 {
+  background: #ffffff;
+  width: 100%;
+  position: absolute;
+  font-size: 2rem;
+  z-index: 10;
+}
+.p1-container {
+  position: relative;
+}
+.p1-container .p1-sec1 img {
+  width: 100rem;
+  position: absolute;
+  top: -91rem;
+  left: -20rem;
+  display: none;
+}
+.p1-container .p1-sec2 img {
+  position: absolute;
+  left: 50%;
+  margin-left: -9rem;
+  top: 30rem;
+  opacity: 0;
+}
+.p1-container .p1-sec3 img {
+  position: absolute;
+  top: 44rem;
+  opacity: 0;
+}
+.p1-container .p1-sec4 {
+  position: absolute;
+  top: 98rem;
+  left: 50%;
+  margin-left: -7rem;
+  text-align: center;
+  width: 14rem;
+}
+.p1-container .p1-sec4 img {
+  width: 1rem;
+  opacity: 0;
+}

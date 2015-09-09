@@ -1,6 +1,7 @@
 var React = require('react');
 
 var Page = require('./page.react');
+var Page1 = require('./page1.react');
 
 var App = React.createClass({
     getInitialState: function () {
@@ -16,17 +17,22 @@ var App = React.createClass({
     componentWillMount: function () {
         var scrH = $(window).height();
         var arr = [];
-        for(var i =0;i<4;i++){
+        arr.push({
+            zIndex: 0,
+            top: '1px',
+            background: '#ffffff'
+        });
+        for(var i =1;i<5;i++){
             arr.push({
                 zIndex: i,
                 top: (scrH*i + 1) + 'px'
             });
         }
         //测试用的，为了区分不同的页所以设置了不同的颜色
-        arr[0].background = "#ff0000";
         arr[1].background = "#00ff00";
         arr[2].background = "#0000ff";
         arr[3].background = "#ffff00";
+        arr[4].background = "#ff0000";
         this.setState({
             screenH: scrH,
             pages: arr
@@ -72,19 +78,37 @@ var App = React.createClass({
         $('.page-list').css({top:top});
     },
     render: function () {
-        var pages = this.state.pages.map(function (item) {
-            return (
-                <Page screenH={this.state.screenH}
-                      top={item.top}
-                      zIndex={item.zIndex}
-                      background={item.background}
-                    />
-            );
-        }.bind(this));
+        //var pages = this.state.pages.map(function (item) {
+        //    return (
+        //        <Page screenH={this.state.screenH}
+        //              top={item.top}
+        //              zIndex={item.zIndex}
+        //              background={item.background}/>
+        //    );
+        //}.bind(this));
         return (
             <div className="wrapper">
                 <div className="page-list">
-                    {pages}
+                    <Page1 screenH={this.state.screenH}
+                           top={this.state.pages[0].top}
+                           zIndex={this.state.pages[0].zIndex}
+                           background="#ffffff" />
+                    <Page screenH={this.state.screenH}
+                           top={this.state.pages[1].top}
+                           zIndex={this.state.pages[1].zIndex}
+                           background="#00ff00" />
+                    <Page screenH={this.state.screenH}
+                          top={this.state.pages[2].top}
+                          zIndex={this.state.pages[2].zIndex}
+                          background="#ffff00" />
+                    <Page screenH={this.state.screenH}
+                          top={this.state.pages[3].top}
+                          zIndex={this.state.pages[3].zIndex}
+                          background="#00ffff" />
+                    <Page screenH={this.state.screenH}
+                          top={this.state.pages[4].top}
+                          zIndex={this.state.pages[4].zIndex}
+                          background="#ff00ff" />
                 </div>
                 <div className="touch-arrow"></div>
             </div>

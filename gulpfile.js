@@ -8,7 +8,7 @@ var less = require('gulp-less');
 //var uglify = require('gulp-uglify');
 
 gulp.task('clean', function () {
-    del(['./dist/*.css','./dist/*.js'],{force:true});
+    del(['./dist/*.css', './dist/*.js'],{force:true});
 });
 
 gulp.task('build', ['clean'], function () {
