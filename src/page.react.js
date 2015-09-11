@@ -19,7 +19,7 @@ var Page = React.createClass({
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         return (

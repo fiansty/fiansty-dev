@@ -1,0 +1,62 @@
+.page7 {
+  background: #ffffff;
+  width: 100%;
+  position: absolute;
+  font-size: 2rem;
+  z-index: 10;
+}
+.p7-container {
+  position: relative;
+  height: inherit;
+}
+.p7-container .imgExtend {
+  position: absolute;
+  width: 57rem;
+  left: 50%;
+  margin-left: -28.5rem;
+}
+.p7-container .p7-sec1 img {
+  top: 2rem;
+  position: absolute;
+  width: 57rem;
+  left: 50%;
+  margin-left: -28.5rem;
+}
+.p7-container .p7-sec2 img {
+  top: 34rem;
+  position: absolute;
+  width: 57rem;
+  left: 50%;
+  margin-left: -28.5rem;
+}
+.p7-container .p7-sec3 img {
+  top: 70rem;
+  position: absolute;
+  width: 57rem;
+  left: 50%;
+  margin-left: -28.5rem;
+}
+.p7-container .p7-word1 {
+  position: absolute;
+  left: 23rem;
+  top: 1rem;
+}
+.p7-container .p7-word1 img {
+  z-index: 20;
+}
+.p7-container .p7-word2 {
+  position: absolute;
+  top: 32rem;
+  left: 20rem;
+}
+.p7-container .p7-word2 img {
+  z-index: 20;
+}
+.p7-container .p7-word3 {
+  position: absolute;
+  top: 69rem;
+  left: 31rem;
+}
+.p7-container .p7-word3 img {
+  z-index: 20;
+}

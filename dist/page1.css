@@ -7,6 +7,7 @@
 }
 .p1-container {
   position: relative;
+  height: inherit;
 }
 .p1-container .p1-sec1 img {
   width: 100rem;
@@ -29,11 +30,11 @@
 }
 .p1-container .p1-sec4 {
   position: absolute;
-  top: 98rem;
+  bottom: 1rem;
   left: 50%;
-  margin-left: -7rem;
+  margin-left: -9rem;
   text-align: center;
-  width: 14rem;
+  width: 18rem;
 }
 .p1-container .p1-sec4 img {
   width: 1rem;

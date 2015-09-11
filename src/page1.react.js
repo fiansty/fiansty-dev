@@ -33,7 +33,13 @@ var Page1 = React.createClass({
                 .then(me._sec4Animate)
                 .catch(function (e) {
                     console.error(e);
-                }).done();
+                })
+                .done(function () {
+                    me._sec4Swing();
+                    setInterval(function () {
+                        me._sec4Swing();
+                    }, 2000);
+                });
         }, 500);
     },
     _getDeg: function (start, limit, step) {
@@ -79,7 +85,7 @@ var Page1 = React.createClass({
     _sec2Animate: function () {
         var deferred = Q.defer();
         var $dom = $('.p1-sec2 img');
-        var time = 300;
+        var time = 100;
         $dom.animate({
             top: '40rem',
             opacity: '1'
@@ -97,20 +103,42 @@ var Page1 = React.createClass({
         $('.p1-sec3 img').animate({
             top: '41rem',
             opacity: '1'
-        }, 300, 'swing', function () {
+        }, 500, 'swing', function () {
             deferred.resolve();
         });
         return deferred.promise;
     },
     _sec4Animate: function () {
         var deferred = Q.defer();
-        $('.p1-sec4 img').animate({
-            width: '14rem',
+        var $dom = $('.p1-sec4 img');
+        $dom.animate({
+            width: '18rem',
             opacity: '1'
         }, 300, 'swing', function () {
-            deferred.resolve();
+            $dom.animate({
+                width: '12rem'
+            }, 300, 'swing', function () {
+                $dom.animate({
+                    width: '14rem'
+                }, 300, 'swing', function () {
+                    deferred.resolve();
+                });
+            });
         });
         return deferred.promise;
+    },
+    _sec4Swing: function () {
+        var interval = null;
+        var deg = this._getDeg(0,9,3);
+        var $dom = $('.p1-sec4 img');
+        interval = setInterval(function () {
+            var d = deg.getnum();
+            if (d != null) {
+                $dom.css({'transform': 'rotate('+d+'deg)'});
+            } else {
+                clearTimeout(interval);
+            }
+        }.bind(this), 3);
     },
     render: function () {
         var style = {

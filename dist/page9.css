@@ -1,0 +1,36 @@
+.page9 {
+  background: #ffffff;
+  width: 100%;
+  position: absolute;
+  font-size: 2rem;
+  z-index: 10;
+}
+.p9-container {
+  position: relative;
+  height: inherit;
+}
+.p9-container .pic-box img {
+  position: absolute;
+  width: 56rem;
+  left: 50%;
+  top: 50%;
+  margin-left: -28rem;
+  margin-top: -51rem;
+}
+.p9-container .pic-box .p9-zoom1 {
+  z-index: 20;
+}
+.p9-container .pic-box .p9-zoom2 {
+  z-index: 25;
+}
+.p9-container .pic-box .p9-zoom3 {
+  z-index: 30;
+}
+.p9-container .p9-person {
+  z-index: 40;
+  position: absolute;
+  bottom: 4rem;
+  width: 40rem;
+  left: 50%;
+  margin-left: -20rem;
+}
