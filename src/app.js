@@ -2,6 +2,8 @@ var React = require('react');
 
 var Page = require('./page.react');
 var Page1 = require('./page1.react');
+var Page2 = require('./page2.react');
+var Page4 = require('./page4.react');
 var Page7 = require('./page7.react');
 var Page8 = require('./page8.react');
 var Page9 = require('./page9.react');
@@ -20,7 +22,7 @@ var App = React.createClass({
     componentWillMount: function () {
         var scrH = $(window).height();
         var arr = [];
-        for(var i =0;i<4;i++){
+        for(var i =0;i<6;i++){
             arr.push({
                 zIndex: i,
                 top: (scrH*i + 1) + 'px',
@@ -66,6 +68,12 @@ var App = React.createClass({
             console.log('page:',page);
             if(page == 0){
                 this.refs.page1._play();
+            }else if(page == 1){
+                this.refs.page2._play();
+            }else if(page == 2){
+                this.refs.page4._play();
+            }else if(page == 3){
+                this.refs.page7._play();
             }
         }.bind(this));
     },
@@ -84,21 +92,33 @@ var App = React.createClass({
                            background="#ffffff"
                            ref="page1"
                         />
-                    <Page7 screenH={this.state.screenH}
+                    <Page2 screenH={this.state.screenH}
                            top={this.state.pages[1].top}
                            zIndex={this.state.pages[1].zIndex}
+                           background="#ffffff"
+                           ref="page2"
+                        />
+                    <Page4 screenH={this.state.screenH}
+                           top={this.state.pages[2].top}
+                           zIndex={this.state.pages[2].zIndex}
+                           background="#ffffff"
+                           ref="page4"
+                        />
+                    <Page7 screenH={this.state.screenH}
+                           top={this.state.pages[3].top}
+                           zIndex={this.state.pages[3].zIndex}
                            background="#ffffff"
                            ref="page7"
                         />
                     <Page8 screenH={this.state.screenH}
-                           top={this.state.pages[2].top}
-                           zIndex={this.state.pages[2].zIndex}
+                           top={this.state.pages[4].top}
+                           zIndex={this.state.pages[4].zIndex}
                            background="#ffffff"
                            ref="page8"
                         />
                     <Page9 screenH={this.state.screenH}
-                           top={this.state.pages[3].top}
-                           zIndex={this.state.pages[3].zIndex}
+                           top={this.state.pages[5].top}
+                           zIndex={this.state.pages[5].zIndex}
                            background="#ffffff"
                            ref="page9"
                         />

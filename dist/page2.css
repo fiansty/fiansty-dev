@@ -1,0 +1,65 @@
+.page11 {
+  background: #ffffff;
+  width: 100%;
+  position: absolute;
+  font-size: 2rem;
+  z-index: 10;
+}
+.p11-container {
+  position: relative;
+}
+.p11-container .p11-sec1 img {
+  position: absolute;
+  top: -30rem;
+  left: -32rem;
+  opacity: 0;
+}
+.p11-container .p11-sec2 img {
+  position: absolute;
+  top: 23rem;
+  left: -34rem;
+  opacity: 0;
+}
+.p11-container .p11-sec3 img {
+  position: absolute;
+  top: 53rem;
+  left: -36rem;
+  opacity: 0;
+}
+.p11-container .p11-sec4 img {
+  position: absolute;
+  top: -31rem;
+  right: -31rem;
+  opacity: 0;
+}
+.p11-container .p11-sec5 img {
+  position: absolute;
+  top: 12rem;
+  right: 20rem;
+  opacity: 0;
+  width: 90%;
+  z-index: 100;
+}
+.p11-container .p11-sec6 img {
+  position: absolute;
+  top: 109rem;
+  opacity: 0;
+}
+.p11-container .p11-sec7 img {
+  position: absolute;
+  top: 12rem;
+  left: 32rem;
+  opacity: 0;
+}
+.p11-container .p11-sec8 img {
+  position: absolute;
+  top: 69rem;
+  right: -1rem;
+  opacity: 0;
+}
+.p11-container .p11-sec9 img {
+  position: absolute;
+  top: 113rem;
+  left: 24rem;
+  opacity: 0;
+}
