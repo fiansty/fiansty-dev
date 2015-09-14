@@ -22,7 +22,23 @@ var Page9 = React.createClass({
 
     },
     _play: function () {
-
+        var me = this;
+        Q.fcall(me._zoom2Fade)
+            .then(me._zoom3Fade)
+            .then(me._personAnimate)
+            .catch(function (e) {
+                console.error(e);
+            })
+            .done();
+    },
+    _zoom2Fade: function () {
+        $('.p9-zoom2').fadeIn(2000);
+    },
+    _zoom3Fade: function () {
+        $('.p9-zoom3').fadeIn(2000);
+    },
+    _personAnimate: function () {
+        $('.p9-person').animate({width: '40rem'});
     },
     render: function () {
         var style = {

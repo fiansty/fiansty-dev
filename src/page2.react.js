@@ -70,18 +70,6 @@ var Page2 = React.createClass({
     },
     _sec1Animate: function () {
         var deferred = Q.defer();
-        // var interval = null;
-        // var deg = this._getDeg(0,10,2);
-
-        // interval = setInterval(function () {
-        //     var d = deg.getnum();
-        //     if (d != null) {
-        //         this.setState({deg: d});
-        //     } else {
-        //         clearTimeout(interval);
-        //         deferred.resolve();
-        //     }
-        // }.bind(this), 12);
         $('.p11-sec1 img').animate({
             top: 0,
             left: 0,

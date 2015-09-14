@@ -22,7 +22,40 @@ var Page8 = React.createClass({
 
     },
     _play: function () {
-
+        var me = this;
+        Q.fcall(me._imgAnimate)
+            .then(me._wordAnimate)
+            .catch(function (e) {
+                console.error(e);
+            })
+            .done();
+    },
+    _imgAnimate: function () {
+        $('.p8-sec1 img').animate({
+            left: '0',
+            opacity: 1
+        });
+        setTimeout(function () {
+            $('.p8-sec2 img').animate({
+                left: '0',
+                opacity: 1
+            });
+        },400);
+        setTimeout(function () {
+            $('.p8-sec3 img').animate({
+                left: '0',
+                opacity: 1
+            });
+        },800);
+    },
+    _wordAnimate: function () {
+        $('.p8-word1 img').animate({width: '42rem'});
+        setTimeout(function () {
+            $('.p8-word2 img').animate({width: '18rem'});
+        },400);
+        setTimeout(function () {
+            $('.p8-word3 img').animate({width: '18rem'});
+        },800);
     },
     render: function () {
         var style = {

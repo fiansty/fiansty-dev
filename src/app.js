@@ -3,10 +3,12 @@ var React = require('react');
 var Page = require('./page.react');
 var Page1 = require('./page1.react');
 var Page2 = require('./page2.react');
+var Page3 = require('./page3.react');
 var Page4 = require('./page4.react');
 var Page7 = require('./page7.react');
 var Page8 = require('./page8.react');
 var Page9 = require('./page9.react');
+var Page10 = require('./page10.react');
 
 var App = React.createClass({
     getInitialState: function () {
@@ -22,7 +24,7 @@ var App = React.createClass({
     componentWillMount: function () {
         var scrH = $(window).height();
         var arr = [];
-        for(var i =0;i<6;i++){
+        for(var i =0;i<8;i++){
             arr.push({
                 zIndex: i,
                 top: (scrH*i + 1) + 'px',
@@ -52,7 +54,9 @@ var App = React.createClass({
         var endY = evt.originalEvent.changedTouches[0].pageY;
         var page;
 
-        if(endY < this.state.startY){
+        if(Math.abs(endY-this.state.startY)<20){
+            return;
+        }else if(endY < this.state.startY){
             page = this.state.currentPage==this.state.pages.length-1? this.state.currentPage: this.state.currentPage+1;
         }else{
             page = this.state.currentPage==0? this.state.currentPage: this.state.currentPage-1;
@@ -71,9 +75,17 @@ var App = React.createClass({
             }else if(page == 1){
                 this.refs.page2._play();
             }else if(page == 2){
-                this.refs.page4._play();
+                this.refs.page3._play();
             }else if(page == 3){
+                this.refs.page4._play();
+            }else if(page == 4){
                 this.refs.page7._play();
+            }else if(page == 5){
+                this.refs.page8._play();
+            }else if(page == 6){
+                this.refs.page9._play();
+            }else if(page == 7){
+                this.refs.page10._play();
             }
         }.bind(this));
     },
@@ -98,29 +110,41 @@ var App = React.createClass({
                            background="#ffffff"
                            ref="page2"
                         />
-                    <Page4 screenH={this.state.screenH}
+                    <Page3 screenH={this.state.screenH}
                            top={this.state.pages[2].top}
                            zIndex={this.state.pages[2].zIndex}
+                           background="#ffffff"
+                           ref="page3"
+                        />
+                    <Page4 screenH={this.state.screenH}
+                           top={this.state.pages[3].top}
+                           zIndex={this.state.pages[3].zIndex}
                            background="#ffffff"
                            ref="page4"
                         />
                     <Page7 screenH={this.state.screenH}
-                           top={this.state.pages[3].top}
-                           zIndex={this.state.pages[3].zIndex}
+                           top={this.state.pages[4].top}
+                           zIndex={this.state.pages[4].zIndex}
                            background="#ffffff"
                            ref="page7"
                         />
                     <Page8 screenH={this.state.screenH}
-                           top={this.state.pages[4].top}
-                           zIndex={this.state.pages[4].zIndex}
+                           top={this.state.pages[5].top}
+                           zIndex={this.state.pages[5].zIndex}
                            background="#ffffff"
                            ref="page8"
                         />
                     <Page9 screenH={this.state.screenH}
-                           top={this.state.pages[5].top}
-                           zIndex={this.state.pages[5].zIndex}
+                           top={this.state.pages[6].top}
+                           zIndex={this.state.pages[6].zIndex}
                            background="#ffffff"
                            ref="page9"
+                        />
+                    <Page10 screenH={this.state.screenH}
+                            top={this.state.pages[7].top}
+                            zIndex={this.state.pages[7].zIndex}
+                            background="#ffffff"
+                            ref="page10"
                         />
                 </div>
                 <div className="touch-arrow"></div>

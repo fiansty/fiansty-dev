@@ -47,19 +47,19 @@ var Page1 = React.createClass({
             limit = limit;
         var num = start, flag = true, limitMinus = false;
         return {
-            getnum: function(){
-                if(Math.abs(num)<limit){
-                    num = flag? num+step: num-step;
-                    if(limitMinus){
+            getnum: function () {
+                if (Math.abs(num) < limit) {
+                    num = flag ? num + step : num - step;
+                    if (limitMinus) {
                         limit--;
                         limitMinus = false;
                     }
-                }else{
-                    num = flag? num-step: num+step;
-                    flag = flag? false: true;
+                } else {
+                    num = flag ? num - step : num + step;
+                    flag = flag ? false : true;
                     limitMinus = true;
                 }
-                if(limit == 0){
+                if (limit == 0) {
                     num = null;
                 }
                 return num;
