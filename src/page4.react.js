@@ -142,10 +142,10 @@ var Page4 = React.createClass({
                     <img style={scale15} className="p3-title" src="src/img/page3/p3-title.png"/>
                 </div>
                 <div className="p3-dong">
-                    <img style={scale0}  className="p3-handsome"  src="src/img/page3/p3-handsome.png"/>
+                    <img style={scale0} className="p3-handsome"  src="src/img/page3/p3-handsome.png"/>
                 </div>
                 <div className="p3-comeon">
-                    <img style={scale0}  className="p3-addoil" src="src/img/page3/p3-addoil.png"/>
+                    <img style={scale0} className="p3-addoil" src="src/img/page3/p3-addoil.png"/>
                 </div>
                 <div className="p3-dragon"></div>
             </div>

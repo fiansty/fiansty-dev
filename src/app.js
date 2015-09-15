@@ -5,6 +5,8 @@ var Page1 = require('./page1.react');
 var Page2 = require('./page2.react');
 var Page3 = require('./page3.react');
 var Page4 = require('./page4.react');
+var Page5 = require('./page5.react');
+var Page6 = require('./page6.react');
 var Page7 = require('./page7.react');
 var Page8 = require('./page8.react');
 var Page9 = require('./page9.react');
@@ -24,7 +26,7 @@ var App = React.createClass({
     componentWillMount: function () {
         var scrH = $(window).height();
         var arr = [];
-        for(var i =0;i<8;i++){
+        for(var i =0;i<10;i++){
             arr.push({
                 zIndex: i,
                 top: (scrH*i + 1) + 'px',
@@ -79,12 +81,16 @@ var App = React.createClass({
             }else if(page == 3){
                 this.refs.page4._play();
             }else if(page == 4){
-                this.refs.page7._play();
+                this.refs.page5._play();
             }else if(page == 5){
-                this.refs.page8._play();
+                this.refs.page6._play();
             }else if(page == 6){
-                this.refs.page9._play();
+                this.refs.page7._play();
             }else if(page == 7){
+                this.refs.page8._play();
+            }else if(page == 8){
+                this.refs.page9._play();
+            }else if(page == 9){
                 this.refs.page10._play();
             }
         }.bind(this));
@@ -122,27 +128,39 @@ var App = React.createClass({
                            background="#ffffff"
                            ref="page4"
                         />
-                    <Page7 screenH={this.state.screenH}
+                    <Page5 screenH={this.state.screenH}
                            top={this.state.pages[4].top}
                            zIndex={this.state.pages[4].zIndex}
+                           background="#ffffff"
+                           ref="page5"
+                        />
+                    <Page6 screenH={this.state.screenH}
+                           top={this.state.pages[5].top}
+                           zIndex={this.state.pages[5].zIndex}
+                           background="#ffffff"
+                           ref="page6"
+                        />
+                    <Page7 screenH={this.state.screenH}
+                           top={this.state.pages[6].top}
+                           zIndex={this.state.pages[6].zIndex}
                            background="#ffffff"
                            ref="page7"
                         />
                     <Page8 screenH={this.state.screenH}
-                           top={this.state.pages[5].top}
-                           zIndex={this.state.pages[5].zIndex}
+                           top={this.state.pages[7].top}
+                           zIndex={this.state.pages[7].zIndex}
                            background="#ffffff"
                            ref="page8"
                         />
                     <Page9 screenH={this.state.screenH}
-                           top={this.state.pages[6].top}
-                           zIndex={this.state.pages[6].zIndex}
+                           top={this.state.pages[8].top}
+                           zIndex={this.state.pages[8].zIndex}
                            background="#ffffff"
                            ref="page9"
                         />
                     <Page10 screenH={this.state.screenH}
-                            top={this.state.pages[7].top}
-                            zIndex={this.state.pages[7].zIndex}
+                            top={this.state.pages[9].top}
+                            zIndex={this.state.pages[9].zIndex}
                             background="#ffffff"
                             ref="page10"
                         />
