@@ -12,7 +12,8 @@ var Page9 = React.createClass({
     },
     getInitialState: function () {
         return {
-            deg: 0
+            deg: 0,
+            isHide: false
         }
     },
     componentWillMount: function () {
@@ -22,6 +23,7 @@ var Page9 = React.createClass({
 
     },
     _play: function () {
+        this.setState({isHide: false});
         var me = this;
         Q.fcall(me._zoom2Fade)
             .then(me._zoom3Fade)
@@ -40,12 +42,16 @@ var Page9 = React.createClass({
     _personAnimate: function () {
         $('.p9-person').animate({width: '40rem'});
     },
+    _hide: function () {
+        this.setState({isHide: true});
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
             "zIndex": this.props.zIndex,
-            "background": this.props.background
+            "background": this.props.background,
+            "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
             <div className="page9" style={style}>

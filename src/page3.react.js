@@ -10,6 +10,12 @@ var Page5 = React.createClass({
             background: "#ffffff"
         }
     },
+    getInitialState: function () {
+        return {
+            deg: 0,
+            isHide: false
+        }
+    },
     componentWillMount: function () {
 
     },
@@ -17,6 +23,7 @@ var Page5 = React.createClass({
 
     },
     _play: function () {
+        this.setState({isHide: false});
         $(".p5_top_left").css("left", "-35rem");
         $(".p5_top_right").css("right", "-22rem");
         $(".p5_center_all").css("left", "59rem");
@@ -73,12 +80,16 @@ var Page5 = React.createClass({
     _next: function () {
         this.props.toPageFn(3);
     },
+    _hide: function () {
+        this.setState({isHide: true});
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
             "zIndex": this.props.zIndex,
-            "background": this.props.background
+            "background": this.props.background,
+            "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
             <div className="page5" style={style}>

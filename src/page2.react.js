@@ -12,7 +12,8 @@ var Page2 = React.createClass({
     },
     getInitialState: function () {
         return {
-            deg: 0
+            deg: 0,
+            isHide: false
         }
     },
     componentWillMount: function () {
@@ -25,6 +26,7 @@ var Page2 = React.createClass({
         // clearTimeout(this.state.timeout);
     },
     _play: function () {
+        this.setState({isHide: false});
         var me = this;
         this.state.timeout = setTimeout(function () {
             me._sec1Animate();
@@ -211,12 +213,16 @@ var Page2 = React.createClass({
     _next: function () {
         this.props.toPageFn(2);
     },
+    _hide: function () {
+        this.setState({isHide: true});
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
             "zIndex": this.props.zIndex,
-            "background": this.props.background
+            "background": this.props.background,
+            "visibility": this.state.isHide? 'hidden': 'visible'
         };
         var swStyle = {
             "transform": "rotate(" + this.state.deg + "deg)"

@@ -12,7 +12,8 @@ var Page4 = React.createClass({
     },
     getInitialState: function () {
         return {
-            deg: 0
+            deg: 0,
+            isHide: false
         }
     },
     componentWillMount: function () {
@@ -25,6 +26,7 @@ var Page4 = React.createClass({
         clearTimeout(this.state.timeout);
     },
     _play: function () {
+        this.setState({isHide: false});
         var me = this;
         this.state.timeout = setTimeout(function () {
             Q.fcall(me._sec1Animate)
@@ -35,30 +37,6 @@ var Page4 = React.createClass({
                     console.error(e);
                 }).done();
         }, 500);
-    },
-    _getDeg: function (start, limit, step) {
-        var start = start,
-            limit = limit;
-        var num = start, flag = true, limitMinus = false;
-        return {
-            getnum: function(){
-                if(Math.abs(num)<limit){
-                    num = flag? num+step: num-step;
-                    if(limitMinus){
-                        limit--;
-                        limitMinus = false;
-                    }
-                }else{
-                    num = flag ? num-step: num+step;
-                    flag = flag? false: true;
-                    limitMinus = true;
-                }
-                if(limit == 0){
-                    num = null;
-                }
-                return num;
-            }
-        }
     },
     _sec1Animate: function () {
         var deferred = Q.defer();
@@ -117,12 +95,16 @@ var Page4 = React.createClass({
 
         return deferred.promise;
     },
+    _hide: function () {
+        this.setState({isHide: true});
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
             "zIndex": this.props.zIndex,
-            "background": this.props.background
+            "background": this.props.background,
+            "visibility": this.state.isHide? 'hidden': 'visible'
         };
         var scale0 = {
             "WebkitTransform": "scale(0)",

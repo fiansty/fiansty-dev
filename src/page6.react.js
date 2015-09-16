@@ -12,7 +12,8 @@ var Page6 = React.createClass({
     },
     getInitialState: function () {
         return {
-            deg: 0
+            deg: 0,
+            isHide: false
         }
     },
     componentWillMount: function () {
@@ -22,6 +23,7 @@ var Page6 = React.createClass({
 
     },
     _play: function () {
+        this.setState({isHide: false});
         var me = this;
         Q.fcall(me._imgAnimate)
             .then(me._wordAnimate)
@@ -51,12 +53,16 @@ var Page6 = React.createClass({
     _wordAnimate: function () {
         $('.p6-word1 img').animate({width: '18rem'});
     },
+    _hide: function () {
+        this.setState({isHide: true});
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
             "zIndex": this.props.zIndex,
-            "background": this.props.background
+            "background": this.props.background,
+            "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
             <div className="page-6" style={style}>

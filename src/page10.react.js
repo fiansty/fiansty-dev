@@ -12,7 +12,8 @@ var Page1 = React.createClass({
     },
     getInitialState: function () {
         return {
-            deg: 0
+            deg: 0,
+            isHide: false
         }
     },
     componentWillMount: function () {
@@ -22,6 +23,7 @@ var Page1 = React.createClass({
 
     },
     _play: function () {
+        this.setState({isHide: false});
         var img = $(".p10-sec4 img")[0];
         var timeId = window.setInterval(function(){
             if(img.src.indexOf("t0165dc459b3bfdf59f")!=-1){
@@ -43,12 +45,16 @@ var Page1 = React.createClass({
         $(".p10-sec2 img").addClass("animation");
         $(".p10-sec-add img").fadeIn();
     },
+    _hide: function () {
+        this.setState({isHide: true});
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
             "zIndex": this.props.zIndex,
-            "background": this.props.background
+            "background": this.props.background,
+            "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
           <div className="page10" style={style}>

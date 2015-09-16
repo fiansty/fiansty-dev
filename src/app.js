@@ -82,7 +82,13 @@ var App = React.createClass({
                 $('.logo-xy img').hide();
                 $('.music').hide();
             }
-            this.refs['page'+(page+1)]._play();
+            for(var i=0;i<10;i++){
+                if(i == page){
+                    this.refs['page'+(i+1)]._play();
+                }else{
+                    this.refs['page'+(i+1)]._hide();
+                }
+            }
         }.bind(this));
     },
     _tMove: function (evt) {
