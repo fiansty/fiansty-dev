@@ -20,16 +20,17 @@ var App = React.createClass({
             listTop: 0,
             memTop: 0,
             startY: 0,
-            interval: null
+            interval: null,
+            complete: false
         }
     },
     componentWillMount: function () {
         var scrH = $(window).height();
         var arr = [];
-        for(var i =0;i<10;i++){
+        for (var i = 0; i < 10; i++) {
             arr.push({
                 zIndex: i,
-                top: (scrH*i + 1) + 'px',
+                top: (scrH * i + 1) + 'px',
                 background: '#ffffff'
             });
         }
@@ -37,13 +38,24 @@ var App = React.createClass({
             screenH: scrH,
             pages: arr
         });
+        var me = this;
+        setTimeout(function () {
+            me.setState({complete: true});
+        },1000);
+        setTimeout(function () {
+            me.refs.page1._play();
+            $('.music img').fadeIn();
+            //$('.page-list').on({
+            //    'touchstart': this._tStart,
+            //    'touchmove': this._tMove,
+            //    'touchend': this._tEnd
+            //});
+        },5000);
     },
     componentDidMount: function () {
-        $('.page-list').on({
-            'touchstart':this._tStart,
-            'touchmove':this._tMove,
-            'touchend':this._tEnd
-        });
+        $('body').on('touchstart', '.page-list', this._tStart);
+        $('body').on('touchmove', '.page-list', this._tMove);
+        $('body').on('touchend', '.page-list', this._tEnd);
     },
     _tStart: function (evt) {
         var startY = evt.originalEvent.changedTouches[0].pageY;
@@ -56,19 +68,19 @@ var App = React.createClass({
         var endY = evt.originalEvent.changedTouches[0].pageY;
         var page;
 
-        if(Math.abs(endY-this.state.startY)<20){
+        if (Math.abs(endY - this.state.startY) < 20) {
             return;
-        }else if(endY < this.state.startY){
-            page = this.state.currentPage==this.state.pages.length-1? this.state.currentPage: this.state.currentPage+1;
-        }else{
-            page = this.state.currentPage==0? this.state.currentPage: this.state.currentPage-1;
+        } else if (endY < this.state.startY) {
+            page = this.state.currentPage == this.state.pages.length - 1 ? this.state.currentPage : this.state.currentPage + 1;
+        } else {
+            page = this.state.currentPage == 0 ? this.state.currentPage : this.state.currentPage - 1;
         }
         this._toPage(page);
     },
     _toPage: function (page) {
         $('.page-list').animate({
-            top: '-'+this.state.pages[page].top
-        },500, function () {
+            top: '-' + this.state.pages[page].top
+        }, 500, function () {
             this.setState({
                 currentPage: page,
                 listTop: -parseInt(this.state.pages[page].top)
@@ -82,11 +94,11 @@ var App = React.createClass({
                 $('.logo-xy img').hide();
                 $('.music').hide();
             }
-            for(var i=0;i<10;i++){
-                if(i == page){
-                    this.refs['page'+(i+1)]._play();
-                }else{
-                    this.refs['page'+(i+1)]._hide();
+            for (var i = 0; i < 10; i++) {
+                if (i == page) {
+                    this.refs['page' + (i + 1)]._play();
+                } else {
+                    this.refs['page' + (i + 1)]._hide();
                 }
             }
         }.bind(this));
@@ -97,91 +109,98 @@ var App = React.createClass({
         $('.page-list').css({top: top});
     },
     render: function () {
-        return (
-            <div className="wrapper">
-                <div className="logo-360">
-                    <img src="http://p6.qhimg.com/t0174921191a8e1e9d2.png" alt=""/>
+        if (this.state.complete) {
+            return (
+                <div className="wrapper">
+                    <div className="logo-360">
+                        <img src="http://p6.qhimg.com/t0174921191a8e1e9d2.png" alt=""/>
+                    </div>
+                    <div className="logo-xy">
+                        <img src="http://p5.qhimg.com/t01a301402cceefc7d5.png" alt=""/>
+                    </div>
+                    <Music />
+
+                    <div className="page-list">
+                        <Page1 screenH={this.state.screenH}
+                               top={this.state.pages[0].top}
+                               zIndex={this.state.pages[0].zIndex}
+                               background="#ffffff"
+                               ref="page1"
+                               toPageFn={this._toPage}
+                            />
+                        <Page2 screenH={this.state.screenH}
+                               top={this.state.pages[1].top}
+                               zIndex={this.state.pages[1].zIndex}
+                               background="#ffffff"
+                               ref="page2"
+                               toPageFn={this._toPage}
+                            />
+                        <Page3 screenH={this.state.screenH}
+                               top={this.state.pages[2].top}
+                               zIndex={this.state.pages[2].zIndex}
+                               background="#ffffff"
+                               ref="page3"
+                               toPageFn={this._toPage}
+                            />
+                        <Page4 screenH={this.state.screenH}
+                               top={this.state.pages[3].top}
+                               zIndex={this.state.pages[3].zIndex}
+                               background="#ffffff"
+                               ref="page4"
+                               toPageFn={this._toPage}
+                            />
+                        <Page5 screenH={this.state.screenH}
+                               top={this.state.pages[4].top}
+                               zIndex={this.state.pages[4].zIndex}
+                               background="#ffffff"
+                               ref="page5"
+                               toPageFn={this._toPage}
+                            />
+                        <Page6 screenH={this.state.screenH}
+                               top={this.state.pages[5].top}
+                               zIndex={this.state.pages[5].zIndex}
+                               background="#ffffff"
+                               ref="page6"
+                               toPageFn={this._toPage}
+                            />
+                        <Page7 screenH={this.state.screenH}
+                               top={this.state.pages[6].top}
+                               zIndex={this.state.pages[6].zIndex}
+                               background="#ffffff"
+                               ref="page7"
+                               toPageFn={this._toPage}
+                            />
+                        <Page8 screenH={this.state.screenH}
+                               top={this.state.pages[7].top}
+                               zIndex={this.state.pages[7].zIndex}
+                               background="#ffffff"
+                               ref="page8"
+                               toPageFn={this._toPage}
+                            />
+                        <Page9 screenH={this.state.screenH}
+                               top={this.state.pages[8].top}
+                               zIndex={this.state.pages[8].zIndex}
+                               background="#ffffff"
+                               ref="page9"
+                               toPageFn={this._toPage}
+                            />
+                        <Page10 screenH={this.state.screenH}
+                                top={this.state.pages[9].top}
+                                zIndex={this.state.pages[9].zIndex}
+                                background="#ffffff"
+                                ref="page10"
+                                toPageFn={this._toPage}
+                            />
+                    </div>
+                    <div className="touch-arrow"></div>
                 </div>
-                <div className="logo-xy">
-                    <img src="http://p5.qhimg.com/t01a301402cceefc7d5.png" alt=""/>
-                </div>
-                <Music />
-                <div className="page-list">
-                    <Page1 screenH={this.state.screenH}
-                           top={this.state.pages[0].top}
-                           zIndex={this.state.pages[0].zIndex}
-                           background="#ffffff"
-                           ref="page1"
-                           toPageFn={this._toPage}
-                        />
-                    <Page2 screenH={this.state.screenH}
-                           top={this.state.pages[1].top}
-                           zIndex={this.state.pages[1].zIndex}
-                           background="#ffffff"
-                           ref="page2"
-                           toPageFn={this._toPage}
-                        />
-                    <Page3 screenH={this.state.screenH}
-                           top={this.state.pages[2].top}
-                           zIndex={this.state.pages[2].zIndex}
-                           background="#ffffff"
-                           ref="page3"
-                           toPageFn={this._toPage}
-                        />
-                    <Page4 screenH={this.state.screenH}
-                           top={this.state.pages[3].top}
-                           zIndex={this.state.pages[3].zIndex}
-                           background="#ffffff"
-                           ref="page4"
-                           toPageFn={this._toPage}
-                        />
-                    <Page5 screenH={this.state.screenH}
-                           top={this.state.pages[4].top}
-                           zIndex={this.state.pages[4].zIndex}
-                           background="#ffffff"
-                           ref="page5"
-                           toPageFn={this._toPage}
-                        />
-                    <Page6 screenH={this.state.screenH}
-                           top={this.state.pages[5].top}
-                           zIndex={this.state.pages[5].zIndex}
-                           background="#ffffff"
-                           ref="page6"
-                           toPageFn={this._toPage}
-                        />
-                    <Page7 screenH={this.state.screenH}
-                           top={this.state.pages[6].top}
-                           zIndex={this.state.pages[6].zIndex}
-                           background="#ffffff"
-                           ref="page7"
-                           toPageFn={this._toPage}
-                        />
-                    <Page8 screenH={this.state.screenH}
-                           top={this.state.pages[7].top}
-                           zIndex={this.state.pages[7].zIndex}
-                           background="#ffffff"
-                           ref="page8"
-                           toPageFn={this._toPage}
-                        />
-                    <Page9 screenH={this.state.screenH}
-                           top={this.state.pages[8].top}
-                           zIndex={this.state.pages[8].zIndex}
-                           background="#ffffff"
-                           ref="page9"
-                           toPageFn={this._toPage}
-                        />
-                    <Page10 screenH={this.state.screenH}
-                            top={this.state.pages[9].top}
-                            zIndex={this.state.pages[9].zIndex}
-                            background="#ffffff"
-                            ref="page10"
-                            toPageFn={this._toPage}
-                        />
-                </div>
-                <div className="touch-arrow"></div>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <div className="pending">pending...</div>
+            );
+        }
     }
 });
 
-React.render(<App />,document.body);
+React.render(<App />, document.body);

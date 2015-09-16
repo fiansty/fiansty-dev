@@ -20,7 +20,7 @@ var Page1 = React.createClass({
 
     },
     componentDidMount: function () {
-        this._play();
+
     },
     componentWillUnmount: function () {
         clearTimeout(this.state.timeout);
@@ -149,6 +149,11 @@ var Page1 = React.createClass({
     },
     _hide: function () {
         this.setState({isHide: true});
+    },
+    _comp: function () {
+        if (document.readyState == 'complete') {
+            window.comp();
+        }
     },
     render: function () {
         var style = {
