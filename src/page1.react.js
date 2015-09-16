@@ -142,11 +142,14 @@ var Page1 = React.createClass({
             }
         }.bind(this), 3);
     },
+    _next: function () {
+        this.props.toPageFn(1);
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         var swStyle = {
@@ -156,16 +159,16 @@ var Page1 = React.createClass({
             <div className="page1" style={style}>
                 <div className="p1-container">
                     <div className="p1-sec1">
-                        <img style={swStyle} src="src/img/p1-sec1-new1.png"/>
+                        <img style={swStyle} src="http://p0.qhimg.com/t012e6aee24686577f2.png"/>
                     </div>
                     <div className="p1-sec2">
-                        <img src="src/img/p1-sec2.png" alt=""/>
+                        <img src="http://p7.qhimg.com/t01b3eac14cd4d2d651.png" alt=""/>
                     </div>
                     <div className="p1-sec3">
-                        <img src="src/img/p1-sec3.png" alt=""/>
+                        <img src="http://p1.qhimg.com/t01065dbeaa08b211b3.png" alt=""/>
                     </div>
-                    <div className="p1-sec4">
-                        <img src="src/img/p1-sec4.png" alt=""/>
+                    <div className="p1-sec4" onClick={this._next}>
+                        <img src="http://p1.qhimg.com/t01d2cf8b89596a05ff.png" alt=""/>
                     </div>
                 </div>
             </div>

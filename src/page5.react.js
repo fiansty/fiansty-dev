@@ -58,26 +58,26 @@ var Page5 = React.createClass({
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         return (
             <div className="page-5" style={style}>
                 <div className="p5-Container">
                     <div className="p5-sec1">
-                        <img src="src/img/p5-sec1.png" alt=""/>
+                        <img src="http://p6.qhimg.com/t011351490412d0e6d5.png" alt=""/>
                     </div>
                     <div className="p5-sec2">
-                        <img src="src/img/p5-sec2.png" alt=""/>
+                        <img src="http://p2.qhimg.com/t01b9a265b4326eb45b.png" alt=""/>
                     </div>
                     <div className="p5-sec3">
-                        <img src="src/img/p5-sec3.png" alt=""/>
+                        <img src="http://p5.qhimg.com/t0169167edce601ed40.png" alt=""/>
                     </div>
                     <div className="p5-word1">
-                        <img src="src/img/p5-word1.png" alt=""/>
+                        <img src="http://p1.qhimg.com/t0122c6c9d693fcd010.png" alt=""/>
                     </div>
                     <div className="p5-word2">
-                        <img src="src/img/p5-word2.png" alt=""/>
+                        <img src="http://p5.qhimg.com/t018c712129a58663f0.png" alt=""/>
                     </div>
                 </div>
             </div>

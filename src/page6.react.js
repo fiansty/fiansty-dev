@@ -55,23 +55,23 @@ var Page6 = React.createClass({
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         return (
             <div className="page-6" style={style}>
                 <div className="p6-Container">
                     <div className="p6-sec1">
-                        <img src="src/img/p6-sec1.png" alt=""/>
+                        <img src="http://p0.qhimg.com/t011a713dce2aa2bde1.png" alt=""/>
                     </div>
                     <div className="p6-sec2">
-                        <img src="src/img/p6-sec2.png" alt=""/>
+                        <img src="http://p8.qhimg.com/t01a071d6e6e4fb8867.png" alt=""/>
                     </div>
                     <div className="p6-sec3">
-                        <img src="src/img/p6-sec3.png" alt=""/>
+                        <img src="http://p0.qhimg.com/t01c363c9c44ac61ade.png" alt=""/>
                     </div>
                     <div className="p6-word1">
-                        <img src="src/img/p6-word1.png" alt=""/>
+                        <img src="http://p0.qhimg.com/t012d898db48b71e7d3.png" alt=""/>
                     </div>
                 </div>
             </div>

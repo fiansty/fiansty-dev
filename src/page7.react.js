@@ -95,16 +95,16 @@ var Page7 = React.createClass({
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         var scale0 = {
-            "-webkit-transform": "scale(0)",
+            "WebkitTransform": "scale(0)",
             "transform": "scale(0)"
         };
 
         var scale15 = {
-            "-webkit-transform": "scale(1.5)",
+            "WebkitTransform": "scale(1.5)",
             "transform": "scale(1.5)",
             "opacity": 0
         };
@@ -112,17 +112,17 @@ var Page7 = React.createClass({
         return (
             <div className="page6" style={style}>
                 <div className="p6-question-left">
-                <img style={scale0} className="p6-question" src="src/img/page6/p6-text-question.png"/>
+                <img style={scale0} className="p6-question" src="http://p5.qhimg.com/t01aec98d37f7c2893f.png"/>
                 </div>
                 <div className="p6-question-right">
                 </div>
                 <div className="p6-classroom">
-                <img style={scale15} className="p6-title" src="src/img/page6/p6-title.png"/>
+                <img style={scale15} className="p6-title" src="http://p2.qhimg.com/t0172de710624d81e42.png"/>
                 </div>
                 <div className="p6-answer-left">
                 </div>
                 <div className="p6-answer-middle">
-                <img style={scale0} className="p6-answer" src="src/img/page6/p6-text-answer.png"/>
+                <img style={scale0} className="p6-answer" src="http://p0.qhimg.com/t019183e0aaefd02154.png"/>
                 </div>
                 <div className="p6-answer-right">
                 </div>

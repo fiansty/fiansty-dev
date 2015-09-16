@@ -3,7 +3,6 @@ var Q = require('q');
 
 var Page4 = React.createClass({
     getDefaultProps: function () {
-        console.log(this.props);
         return {
             screenH: "10rem",
             top: "1px",
@@ -122,16 +121,16 @@ var Page4 = React.createClass({
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         var scale0 = {
-            "-webkit-transform": "scale(0)",
+            "WebkitTransform": "scale(0)",
             "transform": "scale(0)"
         };
 
         var scale15 = {
-            "-webkit-transform": "scale(1.5)",
+            "WebkitTransform": "scale(1.5)",
             "transform": "scale(1.5)",
             "opacity": 0
         };
@@ -139,13 +138,13 @@ var Page4 = React.createClass({
         return (
             <div className="page3" style={style}>
                 <div className="p3-game">
-                    <img style={scale15} className="p3-title" src="src/img/page3/p3-title.png"/>
+                    <img style={scale15} className="p3-title" src="http://p8.qhimg.com/t01e73eb02ef0a72727.png"/>
                 </div>
                 <div className="p3-dong">
-                    <img style={scale0} className="p3-handsome"  src="src/img/page3/p3-handsome.png"/>
+                    <img style={scale0} className="p3-handsome"  src="http://p8.qhimg.com/t018001920b46ec7ec8.png"/>
                 </div>
                 <div className="p3-comeon">
-                    <img style={scale0} className="p3-addoil" src="src/img/page3/p3-addoil.png"/>
+                    <img style={scale0} className="p3-addoil" src="http://p6.qhimg.com/t0123fea6db2db4add7.png"/>
                 </div>
                 <div className="p3-dragon"></div>
             </div>

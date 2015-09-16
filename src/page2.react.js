@@ -208,11 +208,14 @@ var Page2 = React.createClass({
         });
         return deferred.promise;
     },
+    _next: function () {
+        this.props.toPageFn(2);
+    },
     render: function () {
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         var swStyle = {
@@ -222,31 +225,31 @@ var Page2 = React.createClass({
             <div className="page11" style={style}>
                 <div className="p11-container">
                     <div className="p11-sec1">
-                        <img  src="src/img/p11-left1.png"/>
+                        <img  src="http://p0.qhimg.com/t0187f59920e47009f0.png"/>
                     </div>
                     <div className="p11-sec2">
-                        <img src="src/img/p11-left2.png" alt=""/>
+                        <img src="http://p8.qhimg.com/t017e0a9f5c5b66f7b7.png" alt=""/>
                     </div>
                     <div className="p11-sec3">
-                        <img src="src/img/p11-left3.png" alt=""/>
+                        <img src="http://p6.qhimg.com/t01c10bbc5b6c9d6c29.png" alt=""/>
                     </div>
                     <div className="p11-sec4">
-                        <img src="src/img/p11-right1.png" alt=""/>
+                        <img src="http://p6.qhimg.com/t0164dccdc10fe57dbe.png" alt=""/>
                     </div>
                     <div className="p11-sec5">
-                        <img style={swStyle} src="src/img/p11-cs.png" alt=""/>
+                        <img style={swStyle} src="http://p4.qhimg.com/t0118d5aa446e9b406f.png" alt=""/>
                     </div>
                     <div className="p11-sec6">
-                        <img src="src/img/p11-bottom.png" alt=""/>
+                        <img src="http://p7.qhimg.com/t01431d029704886bc3.png" alt=""/>
                     </div>
                     <div className="p11-sec7">
-                        <img src="src/img/p11-bullet.png" alt=""/>
+                        <img src="http://p6.qhimg.com/t01fea3cc9884ca7c4b.png" alt=""/>
                     </div>
                     <div className="p11-sec8">
-                        <img src="src/img/p11-cool.png" alt=""/>
+                        <img src="http://p0.qhimg.com/t011e2e0be2c1df4ec9.png" alt=""/>
                     </div>
-                    <div className="p11-sec9">
-                        <img src="src/img/p11-arrow.png" alt=""/>
+                    <div className="p11-sec9" onClick={this._next}>
+                        <img src="http://p1.qhimg.com/t01ff46620f841ef8f0.png" alt=""/>
                     </div>
 
                 </div>

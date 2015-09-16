@@ -93,6 +93,7 @@
   position: absolute;
   left: 23rem;
   bottom: 1rem;
+  cursor: pointer;
 }
 @-webkit-keyframes shake {
   0%,

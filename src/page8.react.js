@@ -61,29 +61,29 @@ var Page8 = React.createClass({
         var style = {
             "height": this.props.screenH,
             "top": this.props.top,
-            "z-index": this.props.zIndex,
+            "zIndex": this.props.zIndex,
             "background": this.props.background
         };
         return (
             <div className="page8" style={style}>
                 <div className="p8-container">
                     <div className="p8-sec1">
-                        <img src="src/img/p8-sec1.png" alt=""/>
+                        <img src="http://p5.qhimg.com/t01d21ae0dbcf4fc6c0.png" alt=""/>
                     </div>
                     <div className="p8-sec2">
-                        <img src="src/img/p8-sec2.png" alt=""/>
+                        <img src="http://p3.qhimg.com/t016265568683aa707f.png" alt=""/>
                     </div>
                     <div className="p8-sec3">
-                        <img src="src/img/p8-sec3.png" alt=""/>
+                        <img src="http://p6.qhimg.com/t01f24a265a7ea99f0b.png" alt=""/>
                     </div>
                     <div className="p8-word1">
-                        <img src="src/img/p8-word1.png" alt=""/>
+                        <img src="http://p3.qhimg.com/t018e0fbbc6b5f4abeb.png" alt=""/>
                     </div>
                     <div className="p8-word2">
-                        <img src="src/img/p8-word2.png" alt=""/>
+                        <img src="http://p5.qhimg.com/t010707a532f563c8a0.png" alt=""/>
                     </div>
                     <div className="p8-word3">
-                        <img src="src/img/p8-word3.png" alt=""/>
+                        <img src="http://p2.qhimg.com/t0196e1a3324cd2bd06.png" alt=""/>
                     </div>
                 </div>
             </div>

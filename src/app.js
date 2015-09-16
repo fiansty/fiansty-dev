@@ -1,6 +1,5 @@
 var React = require('react');
 
-var Page = require('./page.react');
 var Page1 = require('./page1.react');
 var Page2 = require('./page2.react');
 var Page3 = require('./page3.react');
@@ -64,7 +63,9 @@ var App = React.createClass({
         }else{
             page = this.state.currentPage==0? this.state.currentPage: this.state.currentPage-1;
         }
-
+        this._toPage(page);
+    },
+    _toPage: function (page) {
         $('.page-list').animate({
             top: '-'+this.state.pages[page].top
         },500, function () {
@@ -81,27 +82,7 @@ var App = React.createClass({
                 $('.logo-xy img').hide();
                 $('.music').hide();
             }
-            if(page == 0){
-                this.refs.page1._play();
-            }else if(page == 1){
-                this.refs.page2._play();
-            }else if(page == 2){
-                this.refs.page3._play();
-            }else if(page == 3){
-                this.refs.page4._play();
-            }else if(page == 4){
-                this.refs.page5._play();
-            }else if(page == 5){
-                this.refs.page6._play();
-            }else if(page == 6){
-                this.refs.page7._play();
-            }else if(page == 7){
-                this.refs.page8._play();
-            }else if(page == 8){
-                this.refs.page9._play();
-            }else if(page == 9){
-                this.refs.page10._play();
-            }
+            this.refs['page'+(page+1)]._play();
         }.bind(this));
     },
     _tMove: function (evt) {
@@ -113,10 +94,10 @@ var App = React.createClass({
         return (
             <div className="wrapper">
                 <div className="logo-360">
-                    <img src="src/img/360logo.png" alt=""/>
+                    <img src="http://p6.qhimg.com/t0174921191a8e1e9d2.png" alt=""/>
                 </div>
                 <div className="logo-xy">
-                    <img src="src/img/xylogo.png" alt=""/>
+                    <img src="http://p5.qhimg.com/t01a301402cceefc7d5.png" alt=""/>
                 </div>
                 <Music />
                 <div className="page-list">
@@ -125,60 +106,70 @@ var App = React.createClass({
                            zIndex={this.state.pages[0].zIndex}
                            background="#ffffff"
                            ref="page1"
+                           toPageFn={this._toPage}
                         />
                     <Page2 screenH={this.state.screenH}
                            top={this.state.pages[1].top}
                            zIndex={this.state.pages[1].zIndex}
                            background="#ffffff"
                            ref="page2"
+                           toPageFn={this._toPage}
                         />
                     <Page3 screenH={this.state.screenH}
                            top={this.state.pages[2].top}
                            zIndex={this.state.pages[2].zIndex}
                            background="#ffffff"
                            ref="page3"
+                           toPageFn={this._toPage}
                         />
                     <Page4 screenH={this.state.screenH}
                            top={this.state.pages[3].top}
                            zIndex={this.state.pages[3].zIndex}
                            background="#ffffff"
                            ref="page4"
+                           toPageFn={this._toPage}
                         />
                     <Page5 screenH={this.state.screenH}
                            top={this.state.pages[4].top}
                            zIndex={this.state.pages[4].zIndex}
                            background="#ffffff"
                            ref="page5"
+                           toPageFn={this._toPage}
                         />
                     <Page6 screenH={this.state.screenH}
                            top={this.state.pages[5].top}
                            zIndex={this.state.pages[5].zIndex}
                            background="#ffffff"
                            ref="page6"
+                           toPageFn={this._toPage}
                         />
                     <Page7 screenH={this.state.screenH}
                            top={this.state.pages[6].top}
                            zIndex={this.state.pages[6].zIndex}
                            background="#ffffff"
                            ref="page7"
+                           toPageFn={this._toPage}
                         />
                     <Page8 screenH={this.state.screenH}
                            top={this.state.pages[7].top}
                            zIndex={this.state.pages[7].zIndex}
                            background="#ffffff"
                            ref="page8"
+                           toPageFn={this._toPage}
                         />
                     <Page9 screenH={this.state.screenH}
                            top={this.state.pages[8].top}
                            zIndex={this.state.pages[8].zIndex}
                            background="#ffffff"
                            ref="page9"
+                           toPageFn={this._toPage}
                         />
                     <Page10 screenH={this.state.screenH}
                             top={this.state.pages[9].top}
                             zIndex={this.state.pages[9].zIndex}
                             background="#ffffff"
                             ref="page10"
+                            toPageFn={this._toPage}
                         />
                 </div>
                 <div className="touch-arrow"></div>
