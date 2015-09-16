@@ -69,7 +69,7 @@ var Page1 = React.createClass({
                   <div className="p10-sec3">
                       <img src="src/img/word.png" alt=""/>
                   </div>
-                  <div className="p10-sec4">
+                  <div className="p10-sec-add">
                       <img src="src/img/p10-word-add.png" alt=""/>
                   </div>
                   <div className="p10-sec4">

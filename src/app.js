@@ -75,9 +75,11 @@ var App = React.createClass({
             if (page == 0) {
                 $('.logo-360 img').fadeIn(2000);
                 $('.logo-xy img').fadeIn(2000);
+                $('.music').show();
             } else {
                 $('.logo-360 img').hide();
                 $('.logo-xy img').hide();
+                $('.music').hide();
             }
             if(page == 0){
                 this.refs.page1._play();
