@@ -42,6 +42,7 @@ var Page1 = React.createClass({
         $(".p10-sec3 img").addClass("animation");
         $(".p10-sec1 img").addClass("animation");
         $(".p10-sec2 img").addClass("animation");
+        $(".p10-sec-add img").fadeIn();
     },
     render: function () {
         var style = {
@@ -54,7 +55,7 @@ var Page1 = React.createClass({
           <div className="page10" style={style}>
               <div className="p10-container">
                   <div className="p10-sec0-bgc">
-                      <img src="src/img/飞扬H5背景.png" alt=""/>
+                      <img src="src/img/bg-h5.png" alt=""/>
                   </div>
                   <div className="p10-sec0-linear">
                       <img src="src/img/linear.png" alt=""/>
@@ -66,7 +67,10 @@ var Page1 = React.createClass({
                       <img src="src/img/gear_top.png" alt=""/>
                   </div>
                   <div className="p10-sec3">
-                      <img src="src/img/文字.png" alt=""/>
+                      <img src="src/img/word.png" alt=""/>
+                  </div>
+                  <div className="p10-sec4">
+                      <img src="src/img/p10-word-add.png" alt=""/>
                   </div>
                   <div className="p10-sec4">
                       <img src="src/img/button1.png" alt=""/>

@@ -11,6 +11,7 @@ var Page7 = require('./page7.react');
 var Page8 = require('./page8.react');
 var Page9 = require('./page9.react');
 var Page10 = require('./page10.react');
+var Music = require('./music.react');
 
 var App = React.createClass({
     getInitialState: function () {
@@ -71,7 +72,13 @@ var App = React.createClass({
                 currentPage: page,
                 listTop: -parseInt(this.state.pages[page].top)
             });
-            console.log('page:',page);
+            if (page == 0) {
+                $('.logo-360 img').fadeIn(2000);
+                $('.logo-xy img').fadeIn(2000);
+            } else {
+                $('.logo-360 img').hide();
+                $('.logo-xy img').hide();
+            }
             if(page == 0){
                 this.refs.page1._play();
             }else if(page == 1){
@@ -103,6 +110,13 @@ var App = React.createClass({
     render: function () {
         return (
             <div className="wrapper">
+                <div className="logo-360">
+                    <img src="src/img/360logo.png" alt=""/>
+                </div>
+                <div className="logo-xy">
+                    <img src="src/img/xylogo.png" alt=""/>
+                </div>
+                <Music />
                 <div className="page-list">
                     <Page1 screenH={this.state.screenH}
                            top={this.state.pages[0].top}

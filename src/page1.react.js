@@ -26,6 +26,8 @@ var Page1 = React.createClass({
     },
     _play: function () {
         var me = this;
+        $('.logo-360 img').fadeIn(2000);
+        $('.logo-xy img').fadeIn(2000);
         this.state.timeout = setTimeout(function () {
             Q.fcall(me._sec1Animate)
                 .then(me._sec2Animate)
