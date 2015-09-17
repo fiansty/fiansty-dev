@@ -22,76 +22,42 @@ var Page7 = React.createClass({
     componentDidMount: function () {
 
     },
-    componentWillUnmount: function () {
-        clearTimeout(this.state.timeout);
-    },
     _play: function () {
         this.setState({isHide: false});
         var me = this;
-        this.state.timeout = setTimeout(function () {
-            Q.fcall(me._sec1Animate)
-                .then(me._sec3Animate)
-                .then(me._sec4Animate)
-                .catch(function (e) {
-                    console.error(e);
-                }).done();
-        }, 500);
+        Q.fcall(me._imgAnimate)
+            .then(me._wordAnimate)
+            .catch(function (e) {
+                console.error(e);
+            })
+            .done();
     },
-    _sec1Animate: function () {
-        var deferred = Q.defer();
-        var TIME = 1000;
-        $('.p6-question-left').animate({
-            left: '2%'
-        }, TIME);
-        $('.p6-question-right').animate({
-            left: '64%'
-        }, TIME);
-
-        $('.p6-classroom').animate({
-            left: '2%'
-        }, TIME);
-
-        $('.p6-answer-left').animate({
-            left: '2%'
-        }, TIME);
-        $('.p6-answer-middle').animate({
-            left: '32%'
-        }, TIME);
-        $('.p6-answer-right').animate({
-            left: '68%'
-        }, TIME);
-
-
-        setTimeout(function() {
-            deferred.resolve();
-        }, TIME);
-
-        return deferred.promise;
-    },
-    _sec3Animate: function () {
-        var deferred = Q.defer();
-        var $p6Title = $('.p6-title');
-        // $p3Title.show();
-
-        $p6Title.addClass('title-scale-anim');
-        $p6Title.on('webkitAnimationEnd', function() {
-            deferred.resolve();
+    _imgAnimate: function () {
+        $('.p7-sec1 img').animate({
+            left: '0',
+            opacity: 1
         });
-        return deferred.promise;
+        setTimeout(function () {
+            $('.p7-sec2 img').animate({
+                left: '0',
+                opacity: 1
+            });
+        },400);
+        setTimeout(function () {
+            $('.p7-sec3 img').animate({
+                left: '0',
+                opacity: 1
+            });
+        },800);
     },
-    _sec4Animate: function () {
-        var deferred = Q.defer();
-        var $p6Question = $('.p6-question');
-        var $p6Answer = $('.p6-answer');
-
-        $p6Question.addClass('talk-scale-anim');
-        $p6Answer.addClass('talk-scale-anim');
-
-        $p6Question.on('webkitAnimationEnd', function() {
-            deferred.resolve();
-        });
-
-        return deferred.promise;
+    _wordAnimate: function () {
+        $('.p7-word1 img').animate({width: '33rem'});
+        setTimeout(function () {
+            $('.p7-word2 img').animate({width: '18rem'});
+        },400);
+        setTimeout(function () {
+            $('.p7-word3 img').animate({width: '18rem'});
+        },800);
     },
     _hide: function () {
         this.setState({isHide: true});
@@ -104,33 +70,27 @@ var Page7 = React.createClass({
             "background": this.props.background,
             "visibility": this.state.isHide? 'hidden': 'visible'
         };
-        var scale0 = {
-            "WebkitTransform": "scale(0)",
-            "transform": "scale(0)"
-        };
-
-        var scale15 = {
-            "WebkitTransform": "scale(1.5)",
-            "transform": "scale(1.5)",
-            "opacity": 0
-        };
-
         return (
-            <div className="page6" style={style}>
-                <div className="p6-question-left">
-                <img style={scale0} className="p6-question" src="http://p5.qhimg.com/t01aec98d37f7c2893f.png"/>
-                </div>
-                <div className="p6-question-right">
-                </div>
-                <div className="p6-classroom">
-                <img style={scale15} className="p6-title" src="http://p2.qhimg.com/t0172de710624d81e42.png"/>
-                </div>
-                <div className="p6-answer-left">
-                </div>
-                <div className="p6-answer-middle">
-                <img style={scale0} className="p6-answer" src="http://p0.qhimg.com/t019183e0aaefd02154.png"/>
-                </div>
-                <div className="p6-answer-right">
+            <div className="page7" style={style}>
+                <div className="p7-container">
+                    <div className="p7-sec1">
+                        <img src="src/img/p7-sec1.png" alt=""/>
+                    </div>
+                    <div className="p7-sec2">
+                        <img src="src/img/p7-sec2.png" alt=""/>
+                    </div>
+                    <div className="p7-sec3">
+                        <img src="src/img/p7-sec3.png" alt=""/>
+                    </div>
+                    <div className="p7-word1">
+                        <img src="src/img/p7-word1.png" alt=""/>
+                    </div>
+                    <div className="p7-word2">
+                        <img src="src/img/p7-word2.png" alt=""/>
+                    </div>
+                    <div className="p7-word3">
+                        <img src="src/img/p7-word3.png" alt=""/>
+                    </div>
                 </div>
             </div>
         );
