@@ -30,6 +30,7 @@ node_modules
 dist/bundle.js
 dist/app.css
 .idea/
+pub
 
 test/dist/
 test/gulpfile.js/

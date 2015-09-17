@@ -4,6 +4,7 @@ var del = require('del');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var less = require('gulp-less');
+var bundle = require('gulp-bundle-assets');
 //var streamify = require('gulp-streamify');
 //var uglify = require('gulp-uglify');
 
@@ -25,6 +26,12 @@ gulp.task('build', ['clean'], function () {
 
 gulp.task('run', function () {
     gulp.start('build');
+});
+
+gulp.task('bundle', function() {
+    return gulp.src('./bundle.config.js')
+        .pipe(bundle())
+        .pipe(gulp.dest('./pub'));
 });
 
 gulp.task('watch', function () {

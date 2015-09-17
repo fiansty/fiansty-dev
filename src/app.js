@@ -45,11 +45,6 @@ var App = React.createClass({
         setTimeout(function () {
             me.refs.page1._play();
             $('.music img').fadeIn();
-            //$('.page-list').on({
-            //    'touchstart': this._tStart,
-            //    'touchmove': this._tMove,
-            //    'touchend': this._tEnd
-            //});
         },5000);
     },
     componentDidMount: function () {

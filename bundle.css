@@ -44,6 +44,7 @@
     right: 61px;
     top: 127px;
     z-index: 999;
+    display: none;
 }
 .music.play img {
     -webkit-animation: music_play 4s linear infinite;
@@ -56,7 +57,9 @@
         -webkit-transform: rotate(360deg);
     }
 }
-
+.pending {
+    font-size: 2rem;
+}
 .page1 {
     background: #ffffff;
     width: 100%;
@@ -94,6 +97,7 @@
     margin-left: -9rem;
     text-align: center;
     width: 18rem;
+    cursor: pointer;
 }
 .p1-container .p1-sec4 img {
     width: 1rem;
@@ -157,6 +161,9 @@
     top: 69rem;
     right: -1rem;
     opacity: 0;
+}
+.p11-container .p11-sec9 {
+    cursor: pointer;
 }
 .p11-container .p11-sec9 img {
     position: absolute;
@@ -259,6 +266,7 @@
     position: absolute;
     left: 23rem;
     bottom: 1rem;
+    cursor: pointer;
 }
 @-webkit-keyframes shake {
     0%,
@@ -923,4 +931,12 @@
 .p10-container .p10-sec5 {
     position: absolute;
     top: 98rem;
+    left: 50%;
+    margin-left: -7rem;
+    text-align: center;
+    width: 14rem;
+}
+.p10-container .p10-sec5 img {
+    width: 1rem;
+    opacity: 1;
 }
