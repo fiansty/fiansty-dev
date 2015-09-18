@@ -1,0 +1,12 @@
+.page-add2 {
+  background: url("http://p3.qhimg.com/d/inn/44935a98/10-bg.jpg") no-repeat left top;
+  width: 100%;
+  position: absolute;
+  background-position: -38px;
+  font-size: 2rem;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+}

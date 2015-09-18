@@ -1,4 +1,5 @@
 var React = require('react');
+var Q = require('q');
 
 var Page1 = require('./page1.react');
 var Page2 = require('./page2.react');
@@ -10,6 +11,8 @@ var Page7 = require('./page7.react');
 var Page8 = require('./page8.react');
 var Page9 = require('./page9.react');
 var Page10 = require('./page10.react');
+var PageAdd1 = require('./page-add1.react');
+var PageAdd2 = require('./page-add2.react');
 var Music = require('./music.react');
 
 var App = React.createClass({
@@ -21,13 +24,14 @@ var App = React.createClass({
             memTop: 0,
             startY: 0,
             interval: null,
-            complete: false
+            complete: false,
+            curTop: 0
         }
     },
     componentWillMount: function () {
         var scrH = $(window).height();
         var arr = [];
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 12; i++) {
             arr.push({
                 zIndex: i,
                 top: (scrH * i + 1) + 'px',
@@ -41,11 +45,11 @@ var App = React.createClass({
         var me = this;
         setTimeout(function () {
             me.setState({complete: true});
-        },1000);
+        }, 1000);
         setTimeout(function () {
             me.refs.page1._play();
             $('.music img').fadeIn();
-        },5000);
+        }, 5000);
     },
     componentDidMount: function () {
         $('body').on('touchstart', '.page-list', this._tStart);
@@ -61,16 +65,86 @@ var App = React.createClass({
     },
     _tEnd: function (evt) {
         var endY = evt.originalEvent.changedTouches[0].pageY;
-        var page;
+        //var page;
 
         if (Math.abs(endY - this.state.startY) < 20) {
             return;
         } else if (endY < this.state.startY) {
-            page = this.state.currentPage == this.state.pages.length - 1 ? this.state.currentPage : this.state.currentPage + 1;
+            //page = this.state.currentPage == this.state.pages.length - 1 ? this.state.currentPage : this.state.currentPage + 1;
+            //this._turnDown(page);
+            if(this.state.currentPage == this.state.pages.length - 1){
+                this._turnUp(this.state.currentPage);
+            }else{
+                this._turnDown(this.state.currentPage + 1);
+            }
         } else {
-            page = this.state.currentPage == 0 ? this.state.currentPage : this.state.currentPage - 1;
+            //page = this.state.currentPage == 0 ? this.state.currentPage : this.state.currentPage - 1;
+            //this._turnUp(page);
+            if(this.state.currentPage == 0){
+                this._turnDown(this.state.currentPage);
+            }else{
+                this._turnUp(this.state.currentPage - 1);
+            }
         }
-        this._toPage(page);
+        //this._toPage(page);
+    },
+    _turnUp: function (page) {
+        var interval = setInterval(function () {
+            this.setState({curTop: this.state.curTop +10});
+            if(this.state.curTop >= -parseInt(this.state.pages[page].top)){
+                clearInterval(interval);
+                this.setState({curTop: -parseInt(this.state.pages[page].top)});
+                this.setState({
+                    currentPage: page,
+                    listTop: -parseInt(this.state.pages[page].top)
+                });
+                if (page == 0) {
+                    $('.logo-360 img').fadeIn(2000);
+                    $('.logo-xy img').fadeIn(2000);
+                    $('.music').show();
+                } else {
+                    $('.logo-360 img').hide();
+                    $('.logo-xy img').hide();
+                    $('.music').hide();
+                }
+                for (var i = 0; i < 12; i++) {
+                    if (i == page) {
+                        this.refs['page' + (i + 1)]._play();
+                    } else {
+                        this.refs['page' + (i + 1)]._hide();
+                    }
+                }
+            }
+        }.bind(this), 1);
+    },
+    _turnDown: function (page) {
+        var interval = setInterval(function () {
+            this.setState({curTop: this.state.curTop -10});
+            if(this.state.curTop <= -parseInt(this.state.pages[page].top)){
+                clearInterval(interval);
+                this.setState({curTop: -parseInt(this.state.pages[page].top)});
+                this.setState({
+                    currentPage: page,
+                    listTop: -parseInt(this.state.pages[page].top)
+                });
+                if (page == 0) {
+                    $('.logo-360 img').fadeIn(2000);
+                    $('.logo-xy img').fadeIn(2000);
+                    $('.music').show();
+                } else {
+                    $('.logo-360 img').hide();
+                    $('.logo-xy img').hide();
+                    $('.music').hide();
+                }
+                for (var i = 0; i < 12; i++) {
+                    if (i == page) {
+                        this.refs['page' + (i + 1)]._play();
+                    } else {
+                        this.refs['page' + (i + 1)]._hide();
+                    }
+                }
+            }
+        }.bind(this), 1);
     },
     _toPage: function (page) {
         $('.page-list').animate({
@@ -89,7 +163,7 @@ var App = React.createClass({
                 $('.logo-xy img').hide();
                 $('.music').hide();
             }
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 12; i++) {
                 if (i == page) {
                     this.refs['page' + (i + 1)]._play();
                 } else {
@@ -101,21 +175,21 @@ var App = React.createClass({
     _tMove: function (evt) {
         var curTop = evt.originalEvent.changedTouches[0].pageY;
         var top = this.state.listTop + (curTop - this.state.memTop);
-        $('.page-list').css({top: top});
+        this.setState({curTop: top});
     },
     render: function () {
-        if (this.state.complete) {
-            return (
-                <div className="wrapper">
+        return (
+            <div className="container">
+                <div className="pending" style={{display: this.state.complete? 'none': 'block'}}>pending...</div>
+                <div className="wrapper" style={{display: this.state.complete? 'block': 'none'}}>
                     <div className="logo-360">
-                        <img src="http://p6.qhimg.com/t0174921191a8e1e9d2.png" alt=""/>
+                        <img src="http://p8.qhimg.com/d/inn/42f741b8/360logo_03.png" alt=""/>
                     </div>
                     <div className="logo-xy">
                         <img src="http://p5.qhimg.com/t01a301402cceefc7d5.png" alt=""/>
                     </div>
                     <Music />
-
-                    <div className="page-list">
+                    <div className="page-list" style={{transform: 'translate3d(0px,'+ this.state.curTop +'px,0px)'}}>
                         <Page1 screenH={this.state.screenH}
                                top={this.state.pages[0].top}
                                zIndex={this.state.pages[0].zIndex}
@@ -179,22 +253,32 @@ var App = React.createClass({
                                ref="page9"
                                toPageFn={this._toPage}
                             />
+                        <PageAdd1 screenH={this.state.screenH}
+                               top={this.state.pages[9].top}
+                               zIndex={this.state.pages[9].zIndex}
+                               background="#ffffff"
+                               ref="page10"
+                               toPageFn={this._toPage}
+                            />
+                        <PageAdd2 screenH={this.state.screenH}
+                               top={this.state.pages[10].top}
+                               zIndex={this.state.pages[10].zIndex}
+                               background="#ffffff"
+                               ref="page11"
+                               toPageFn={this._toPage}
+                            />
                         <Page10 screenH={this.state.screenH}
-                                top={this.state.pages[9].top}
-                                zIndex={this.state.pages[9].zIndex}
+                                top={this.state.pages[11].top}
+                                zIndex={this.state.pages[11].zIndex}
                                 background="#ffffff"
-                                ref="page10"
+                                ref="page12"
                                 toPageFn={this._toPage}
                             />
                     </div>
                     <div className="touch-arrow"></div>
                 </div>
-            );
-        } else {
-            return (
-                <div className="pending">pending...</div>
-            );
-        }
+            </div>
+        );
     }
 });
 

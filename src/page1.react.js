@@ -72,18 +72,20 @@ var Page1 = React.createClass({
     },
     _sec1Animate: function () {
         var deferred = Q.defer();
-        $('.p1-sec1 img').fadeIn();
-        var interval = null;
-        var deg = this._getDeg(0,10,2);
-        interval = setInterval(function () {
-            var d = deg.getnum();
-            if (d != null) {
-                this.setState({deg: d});
-            } else {
-                clearTimeout(interval);
-                deferred.resolve();
-            }
-        }.bind(this), 12);
+        setTimeout(function () {
+            $('.p1-sec1 img').fadeIn();
+            var interval = null;
+            var deg = this._getDeg(0,10,2);
+            interval = setInterval(function () {
+                var d = deg.getnum();
+                if (d != null) {
+                    this.setState({deg: d});
+                } else {
+                    clearTimeout(interval);
+                    deferred.resolve();
+                }
+            }.bind(this), 12);
+        }.bind(this), 2000);
         return deferred.promise;
     },
     _sec2Animate: function () {
