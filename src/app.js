@@ -189,7 +189,7 @@ var App = React.createClass({
                         <img src="http://p5.qhimg.com/t01a301402cceefc7d5.png" alt=""/>
                     </div>
                     <Music />
-                    <div className="page-list" style={{transform: 'translate3d(0px,'+ this.state.curTop +'px,0px)'}}>
+                    <div className="page-list" style={{WebkitTransform: 'translate3d(0px,'+ this.state.curTop +'px,0px) scale3d(1, 1, 1)'}}>
                         <Page1 screenH={this.state.screenH}
                                top={this.state.pages[0].top}
                                zIndex={this.state.pages[0].zIndex}
