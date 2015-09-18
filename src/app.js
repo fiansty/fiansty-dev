@@ -195,84 +195,84 @@ var App = React.createClass({
                                zIndex={this.state.pages[0].zIndex}
                                background="#ffffff"
                                ref="page1"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page2 screenH={this.state.screenH}
                                top={this.state.pages[1].top}
                                zIndex={this.state.pages[1].zIndex}
                                background="#ffffff"
                                ref="page2"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page3 screenH={this.state.screenH}
                                top={this.state.pages[2].top}
                                zIndex={this.state.pages[2].zIndex}
                                background="#ffffff"
                                ref="page3"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page4 screenH={this.state.screenH}
                                top={this.state.pages[3].top}
                                zIndex={this.state.pages[3].zIndex}
                                background="#ffffff"
                                ref="page4"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page5 screenH={this.state.screenH}
                                top={this.state.pages[4].top}
                                zIndex={this.state.pages[4].zIndex}
                                background="#ffffff"
                                ref="page5"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page6 screenH={this.state.screenH}
                                top={this.state.pages[5].top}
                                zIndex={this.state.pages[5].zIndex}
                                background="#ffffff"
                                ref="page6"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page7 screenH={this.state.screenH}
                                top={this.state.pages[6].top}
                                zIndex={this.state.pages[6].zIndex}
                                background="#ffffff"
                                ref="page7"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page8 screenH={this.state.screenH}
                                top={this.state.pages[7].top}
                                zIndex={this.state.pages[7].zIndex}
                                background="#ffffff"
                                ref="page8"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page9 screenH={this.state.screenH}
                                top={this.state.pages[8].top}
                                zIndex={this.state.pages[8].zIndex}
                                background="#ffffff"
                                ref="page9"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <PageAdd1 screenH={this.state.screenH}
                                top={this.state.pages[9].top}
                                zIndex={this.state.pages[9].zIndex}
                                background="#ffffff"
                                ref="page10"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <PageAdd2 screenH={this.state.screenH}
                                top={this.state.pages[10].top}
                                zIndex={this.state.pages[10].zIndex}
                                background="#ffffff"
                                ref="page11"
-                               toPageFn={this._toPage}
+                               toPageFn={this._turnDown}
                             />
                         <Page10 screenH={this.state.screenH}
                                 top={this.state.pages[11].top}
                                 zIndex={this.state.pages[11].zIndex}
                                 background="#ffffff"
                                 ref="page12"
-                                toPageFn={this._toPage}
+                                toPageFn={this._turnDown}
                             />
                     </div>
                     <div className="touch-arrow"></div>
