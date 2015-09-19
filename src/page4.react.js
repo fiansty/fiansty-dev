@@ -72,26 +72,27 @@ var Page4 = React.createClass({
     },
     _sec3Animate: function () {
         var deferred = Q.defer();
-        var $p3Title = $('.p3-title');
-        // $p3Title.show();
-
-        $p3Title.addClass('title-scale-anim');
-        $p3Title.on('webkitAnimationEnd', function() {
-            deferred.resolve();
-        });
+        //var $p3Title = $('.p3-title');
+        //$p3Title.addClass('title-scale-anim');
+        //$p3Title.on('webkitAnimationEnd', function() {
+        //    $p3Title.removeClass('title-scale-anim');
+        //    deferred.resolve();
+        //});
         return deferred.promise;
     },
     _sec4Animate: function () {
         var deferred = Q.defer();
-        var $p3Addoil = $('.p3-addoil');
-        var $p3Handsome = $('.p3-handsome');
-
-        $p3Addoil.addClass('talk-scale-anim');
-        $p3Handsome.addClass('talk-scale-anim');
-
-        $p3Addoil.on('webkitAnimationEnd', function() {
-            deferred.resolve();
-        });
+        //var $p3Addoil = $('.p3-addoil');
+        //var $p3Handsome = $('.p3-handsome');
+        //
+        //$p3Addoil.addClass('talk-scale-anim');
+        //$p3Handsome.addClass('talk-scale-anim');
+        //
+        //$p3Addoil.on('webkitAnimationEnd', function() {
+        //    $p3Addoil.removeClass('talk-scale-anim');
+        //    $p3Handsome.removeClass('talk-scale-anim');
+        //    deferred.resolve();
+        //});
 
         return deferred.promise;
     },

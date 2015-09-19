@@ -202,21 +202,21 @@ var App = React.createClass({
                                   top={this.state.pages[8].top}
                                   zIndex={this.state.pages[8].zIndex}
                                   background="#ffffff"
-                                  ref="page10"
+                                  ref="page9"
                                   toPageFn={this._turnDown}
                             />
                         <PageAdd2 screenH={this.state.screenH}
                                   top={this.state.pages[9].top}
                                   zIndex={this.state.pages[9].zIndex}
                                   background="#ffffff"
-                                  ref="page11"
+                                  ref="page10"
                                   toPageFn={this._turnDown}
                             />
                         <Page9 screenH={this.state.screenH}
                                top={this.state.pages[10].top}
                                zIndex={this.state.pages[10].zIndex}
                                background="#ffffff"
-                               ref="page9"
+                               ref="page11"
                                toPageFn={this._turnDown}
                             />
                         <Page10 screenH={this.state.screenH}
