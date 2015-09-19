@@ -71,7 +71,7 @@ var Page8 = React.createClass({
             "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
-            <div className="page8" id="page7" style={style}>
+            <div className="page8 pager" id="page7" style={style}>
                 <div className="p8-container">
                     <div className="p8-sec1">
                         <img src="http://p5.qhimg.com/t01d21ae0dbcf4fc6c0.png" alt=""/>

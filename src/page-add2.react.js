@@ -23,7 +23,7 @@ var PageAdd2 = React.createClass({
     },
     _play: function () {
         this.setState({isHide: false});
-        console.log('page-add1')
+        console.log('page-add2')
     },
     _hide: function () {
         this.setState({isHide: true});
@@ -37,7 +37,7 @@ var PageAdd2 = React.createClass({
             "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
-            <div className="page-add2" id="page9" style={style}>
+            <div className="page-add2 pager" id="page9" style={style}>
 
             </div>
         );

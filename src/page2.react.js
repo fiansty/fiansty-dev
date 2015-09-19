@@ -228,7 +228,7 @@ var Page2 = React.createClass({
             "transform": "rotate(" + this.state.deg + "deg)"
         };
         return (
-            <div className="page11" id="page1" style={style}>
+            <div className="page11 pager" id="page1" style={style}>
                 <div className="p11-container">
                     <div className="p11-sec1">
                         <img  src="http://p0.qhimg.com/t0187f59920e47009f0.png"/>

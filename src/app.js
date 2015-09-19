@@ -25,7 +25,9 @@ var App = React.createClass({
             startY: 0,
             interval: null,
             complete: false,
-            curTop: 0
+            curTop: 0,
+            styles: [],
+            turnType: '' //up down self
         }
     },
     componentWillMount: function () {
@@ -52,120 +54,64 @@ var App = React.createClass({
         }, 5000);
     },
     componentDidMount: function () {
-        //$('body').on('touchstart', '.page-list', this._tStart);
-        //$('body').on('touchend', '.page-list', this._tEnd);
+        var arr = [];
+        for(var i=0;i<this.state.pages.length;i++){
+            arr.push($('.pager').eq(i).attr('style'));
+        }
+        this.setState({styles: arr});
         var hammertime = new Hammer($('.page-list')[0], {});
         hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
         hammertime.on('pan', function(evt) {
-            //console.log(evt);
             var num = this.state.currentPage;
-            $('#page'+num).css({'-webkit-transform': 'translate3d(0px,'+evt.deltaY+'px,0px)'});
+            $('#page'+num).css({webkitTransform: 'translate3d(0px,'+evt.deltaY+'px,0px) scale3d(1, 1, 1)'});
+        }.bind(this));
+
+        hammertime.on('panend', function(evt) {
+            for(var i=0;i<this.state.pages.length;i++){
+                $('.pager').eq(i).attr({style:this.state.styles[i]});
+            }
         }.bind(this));
         hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-        hammertime.on('swipe', function (evt) {
-            console.log(evt);
-            alert(evt.deltaY);
-        });
-    },
-    _tStart: function (evt) {
-        var startY = evt.originalEvent.changedTouches[0].pageY;
-        this.setState({
-            memTop: startY,
-            startY: startY
-        });
-    },
-    _tEnd: function (evt) {
-        var endY = evt.originalEvent.changedTouches[0].pageY;
-        //var page;
 
-        if (Math.abs(endY - this.state.startY) < 20) {
-            return;
-        } else if (endY < this.state.startY) {
-            //page = this.state.currentPage == this.state.pages.length - 1 ? this.state.currentPage : this.state.currentPage + 1;
-            //this._turnDown(page);
-            if(this.state.currentPage == this.state.pages.length - 1){
-                this._turnUp(this.state.currentPage);
-            }else{
-                this._turnDown(this.state.currentPage + 1);
-            }
-        } else {
-            //page = this.state.currentPage == 0 ? this.state.currentPage : this.state.currentPage - 1;
-            //this._turnUp(page);
-            if(this.state.currentPage == 0){
-                this._turnDown(this.state.currentPage);
-            }else{
-                this._turnUp(this.state.currentPage - 1);
-            }
-        }
-        //this._toPage(page);
-    },
-    _turnUp: function (page) {
-        var interval = setInterval(function () {
-            this.setState({curTop: this.state.curTop +10});
-            if(this.state.curTop >= -parseInt(this.state.pages[page].top)){
-                clearInterval(interval);
-                this.setState({curTop: -parseInt(this.state.pages[page].top)});
-                this.setState({
-                    currentPage: page,
-                    listTop: -parseInt(this.state.pages[page].top)
-                });
-                if (page == 0) {
-                    $('.logo-360 img').fadeIn(2000);
-                    $('.logo-xy img').fadeIn(2000);
-                    $('.music').show();
-                } else {
-                    $('.logo-360 img').hide();
-                    $('.logo-xy img').hide();
-                    $('.music').hide();
+        hammertime.on('swipe', function (evt) {
+            var num = this.state.currentPage;
+            if(evt.deltaY < -200){
+                if(num != this.state.pages.length-1){
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_down');
+                    this.setState({turnType: 'down'});
+                }else{
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
+                    this.setState({turnType: 'self'});
                 }
-                for (var i = 0; i < 12; i++) {
-                    if (i == page) {
-                        this.refs['page' + (i + 1)]._play();
-                    } else {
-                        this.refs['page' + (i + 1)]._hide();
-                    }
+            }else if(evt.deltaY > 200){
+                if(num != 0){
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_up');
+                    this.setState({turnType: 'up'});
+                }else{
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
+                    this.setState({turnType: 'self'});
                 }
             }
-        }.bind(this), 1);
-    },
-    _turnDown: function (page) {
-        var interval = setInterval(function () {
-            this.setState({curTop: this.state.curTop -10});
-            if(this.state.curTop <= -parseInt(this.state.pages[page].top)){
-                clearInterval(interval);
-                this.setState({curTop: -parseInt(this.state.pages[page].top)});
-                this.setState({
-                    currentPage: page,
-                    listTop: -parseInt(this.state.pages[page].top)
-                });
-                if (page == 0) {
-                    $('.logo-360 img').fadeIn(2000);
-                    $('.logo-xy img').fadeIn(2000);
-                    $('.music').show();
-                } else {
-                    $('.logo-360 img').hide();
-                    $('.logo-xy img').hide();
-                    $('.music').hide();
-                }
-                for (var i = 0; i < 12; i++) {
-                    if (i == page) {
-                        this.refs['page' + (i + 1)]._play();
-                    } else {
-                        this.refs['page' + (i + 1)]._hide();
-                    }
-                }
+        }.bind(this));
+
+        $('.pager').on('webkitTransitionEnd', function () {
+            var num,top;
+            if(this.state.turnType == 'down'){
+                this.setState({currentPage: this.state.currentPage+1});
+                num = this.state.currentPage;
+            }else if(this.state.turnType == 'up'){
+                this.setState({currentPage: this.state.currentPage-1});
+                num = this.state.currentPage;
+            }else if(this.state.turnType == 'self'){
+                num = this.state.currentPage;
             }
-        }.bind(this), 1);
-    },
-    _toPage: function (page) {
-        $('.page-list').animate({
-            top: '-' + this.state.pages[page].top
-        }, 500, function () {
-            this.setState({
-                currentPage: page,
-                listTop: -parseInt(this.state.pages[page].top)
-            });
-            if (page == 0) {
+            console.log(this.state.currentPage);
+            top = '-' + parseInt(this.state.pages[num].top) + 'px';
+            $('.page-list').css({webkitTransform:'translate3d(0px,'+ top +',0px) scale3d(1, 1, 1)'});
+            for(var i=0;i<this.state.pages.length;i++){
+                $('.pager').eq(i).removeClass('page_down page_up self').attr({style:this.state.styles[i]});
+            }
+            if (num == 0) {
                 $('.logo-360 img').fadeIn(2000);
                 $('.logo-xy img').fadeIn(2000);
                 $('.music').show();
@@ -175,18 +121,13 @@ var App = React.createClass({
                 $('.music').hide();
             }
             for (var i = 0; i < 12; i++) {
-                if (i == page) {
+                if (i == num) {
                     this.refs['page' + (i + 1)]._play();
                 } else {
                     this.refs['page' + (i + 1)]._hide();
                 }
             }
         }.bind(this));
-    },
-    _tMove: function (evt) {
-        var curTop = evt.originalEvent.changedTouches[0].pageY;
-        var top = this.state.listTop + (curTop - this.state.memTop);
-        this.setState({curTop: top});
     },
     render: function () {
         return (

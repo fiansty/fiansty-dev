@@ -57,13 +57,17 @@
     -webkit-transform: rotate(360deg);
   }
 }
-.page1.pd {
-  -webkit-animation: page_down 2s ease-in;
+.pager.page_down {
+  -webkit-transform: translate3d(0px,-110%,0px) scale3d(1,1,1);
+  -webkit-transition: -webkit-transform 1s linear;
 }
-@-webkit-keyframes page_down{
-  100% {
-    -webkit-transform: translate3d(0px,-110%,0px) scale3d(1,1,1);
-  }
+.pager.page_up {
+  -webkit-transform: translate3d(0px,110%,0px) scale3d(1,1,1);
+  -webkit-transition: -webkit-transform 1s linear;
+}
+.pager.page_self {
+  -webkit-transform: translate3d(0px,0px,0px) scale3d(1,1,1);
+  -webkit-transition: -webkit-transform 1s linear;
 }
 .pending {
   font-size: 2rem;
