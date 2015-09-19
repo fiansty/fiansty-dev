@@ -52,9 +52,20 @@ var App = React.createClass({
         }, 5000);
     },
     componentDidMount: function () {
-        $('body').on('touchstart', '.page-list', this._tStart);
-        $('body').on('touchmove', '.page-list', this._tMove);
-        $('body').on('touchend', '.page-list', this._tEnd);
+        //$('body').on('touchstart', '.page-list', this._tStart);
+        //$('body').on('touchend', '.page-list', this._tEnd);
+        var hammertime = new Hammer($('.page-list')[0], {});
+        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+        hammertime.on('pan', function(evt) {
+            //console.log(evt);
+            var num = this.state.currentPage;
+            $('#page'+num).css({'-webkit-transform': 'translate3d(0px,'+evt.deltaY+'px,0px)'});
+        }.bind(this));
+        hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+        hammertime.on('swipe', function (evt) {
+            console.log(evt);
+            alert(evt.deltaY);
+        });
     },
     _tStart: function (evt) {
         var startY = evt.originalEvent.changedTouches[0].pageY;
@@ -246,25 +257,25 @@ var App = React.createClass({
                                ref="page8"
                                toPageFn={this._turnDown}
                             />
-                        <Page9 screenH={this.state.screenH}
-                               top={this.state.pages[8].top}
-                               zIndex={this.state.pages[8].zIndex}
-                               background="#ffffff"
-                               ref="page9"
-                               toPageFn={this._turnDown}
-                            />
                         <PageAdd1 screenH={this.state.screenH}
-                               top={this.state.pages[9].top}
-                               zIndex={this.state.pages[9].zIndex}
-                               background="#ffffff"
-                               ref="page10"
-                               toPageFn={this._turnDown}
+                                  top={this.state.pages[8].top}
+                                  zIndex={this.state.pages[8].zIndex}
+                                  background="#ffffff"
+                                  ref="page10"
+                                  toPageFn={this._turnDown}
                             />
                         <PageAdd2 screenH={this.state.screenH}
+                                  top={this.state.pages[9].top}
+                                  zIndex={this.state.pages[9].zIndex}
+                                  background="#ffffff"
+                                  ref="page11"
+                                  toPageFn={this._turnDown}
+                            />
+                        <Page9 screenH={this.state.screenH}
                                top={this.state.pages[10].top}
                                zIndex={this.state.pages[10].zIndex}
                                background="#ffffff"
-                               ref="page11"
+                               ref="page9"
                                toPageFn={this._turnDown}
                             />
                         <Page10 screenH={this.state.screenH}

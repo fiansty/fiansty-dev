@@ -37,7 +37,7 @@ var PageAdd2 = React.createClass({
             "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
-            <div className="page-add2" style={style}>
+            <div className="page-add2" id="page9" style={style}>
 
             </div>
         );

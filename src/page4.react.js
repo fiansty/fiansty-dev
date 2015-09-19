@@ -118,7 +118,7 @@ var Page4 = React.createClass({
         };
 
         return (
-            <div className="page3" style={style}>
+            <div className="page3" id="page3" style={style}>
                 <div className="p3-game">
                     <img style={scale15} className="p3-title" src="http://p8.qhimg.com/t01e73eb02ef0a72727.png"/>
                 </div>

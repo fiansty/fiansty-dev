@@ -119,13 +119,13 @@ var Page2 = React.createClass({
             }, 800, 'swing', function () {
             deferred.resolve();
         });
-            
+
         });
         return deferred.promise;
     },
     _sec4Animate: function () {
         var deferred = Q.defer();
-         
+
         $('.p11-sec4 img').animate({
             top: 0,
             right: '-1rem',
@@ -139,7 +139,7 @@ var Page2 = React.createClass({
         var deferred = Q.defer();
         var that = this;
         var interval = null;
-         var deg = that._getDeg(0,8,2);         
+         var deg = that._getDeg(0,8,2);
         $('.p11-sec5 img').animate({
             opacity: 1,
             width: '60%',
@@ -177,7 +177,7 @@ var Page2 = React.createClass({
                         },300,'swing',function(){
                             deferred.resolve();
                         })
-                })                
+                })
             });
             //deferred.resolve();
         });
@@ -185,7 +185,7 @@ var Page2 = React.createClass({
     },
     _sec7Animate: function () {
         var deferred = Q.defer();
-         
+
         $('.p11-sec7 img').animate({
             top: '20rem',
             left: '16rem',
@@ -228,7 +228,7 @@ var Page2 = React.createClass({
             "transform": "rotate(" + this.state.deg + "deg)"
         };
         return (
-            <div className="page11" style={style}>
+            <div className="page11" id="page1" style={style}>
                 <div className="p11-container">
                     <div className="p11-sec1">
                         <img  src="http://p0.qhimg.com/t0187f59920e47009f0.png"/>

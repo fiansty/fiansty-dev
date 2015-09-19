@@ -92,7 +92,7 @@ var Page5 = React.createClass({
             "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
-            <div className="page5" style={style}>
+            <div className="page5" id="page2" style={style}>
                 <div className="p5_top">
                     <div className="p5_top_left">
                         <img src="http://p8.qhimg.com/t01f1436243f9c7906d.png" className="p5_top_left_png"/>

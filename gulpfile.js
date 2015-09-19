@@ -9,7 +9,7 @@ var bundle = require('gulp-bundle-assets');
 //var uglify = require('gulp-uglify');
 
 gulp.task('clean', function () {
-    del(['./dist/*.css', './dist/*.js'],{force:true});
+    del(['./dist/*.css', './dist/*.js'], {force: true});
 });
 
 gulp.task('build', ['clean'], function () {
@@ -18,17 +18,19 @@ gulp.task('build', ['clean'], function () {
         .bundle()
         .pipe(source('bundle.js'))
         // .pipe(streamify(uglify()))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('../../nodejs/debug-server/public/javascripts/'));
     gulp.src('./src/*.less')
         .pipe(less())
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('../../nodejs/debug-server/public/stylesheets/'));
 });
 
 gulp.task('run', function () {
     gulp.start('build');
 });
 
-gulp.task('bundle', function() {
+gulp.task('bundle', function () {
     return gulp.src('./bundle.config.js')
         .pipe(bundle())
         .pipe(gulp.dest('./pub'));

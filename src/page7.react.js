@@ -116,7 +116,7 @@ var Page7 = React.createClass({
         };
 
         return (
-            <div className="page6" style={style}>
+            <div className="page6" id="page6" style={style}>
                 <div className="p6-question-left">
                 <img style={scale0} className="p6-question" src="http://p5.qhimg.com/t01aec98d37f7c2893f.png"/>
                 </div>

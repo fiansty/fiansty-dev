@@ -169,7 +169,7 @@ var Page1 = React.createClass({
             "transform": "rotate(" + this.state.deg + "deg)"
         };
         return (
-            <div className="page1" style={style}>
+            <div className="page1" id="page0" style={style}>
                 <div className="p1-container">
                     <div className="p1-sec1">
                         <img style={swStyle} src="http://p0.qhimg.com/t012e6aee24686577f2.png"/>

@@ -57,6 +57,14 @@
     -webkit-transform: rotate(360deg);
   }
 }
+.page1.pd {
+  -webkit-animation: page_down 2s ease-in;
+}
+@-webkit-keyframes page_down{
+  100% {
+    -webkit-transform: translate3d(0px,-110%,0px) scale3d(1,1,1);
+  }
+}
 .pending {
   font-size: 2rem;
 }
