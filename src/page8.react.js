@@ -74,13 +74,13 @@ var Page8 = React.createClass({
             <div className="page8 pager" id="page7" style={style}>
                 <div className="p8-container">
                     <div className="p8-sec1">
-                        <img src="http://p5.qhimg.com/t01d21ae0dbcf4fc6c0.png" alt=""/>
+                        <img src="http://p3.qhimg.com/d/inn/37604fe7/p8-sec1.png" alt=""/>
                     </div>
                     <div className="p8-sec2">
-                        <img src="http://p3.qhimg.com/t016265568683aa707f.png" alt=""/>
+                        <img src="http://p8.qhimg.com/d/inn/61d22f22/p8-sec2.png" alt=""/>
                     </div>
                     <div className="p8-sec3">
-                        <img src="http://p6.qhimg.com/t01f24a265a7ea99f0b.png" alt=""/>
+                        <img src="http://p2.qhimg.com/d/inn/3102ad4d/p8-sec3.png" alt=""/>
                     </div>
                     <div className="p8-word1">
                         <img src="http://p3.qhimg.com/t018e0fbbc6b5f4abeb.png" alt=""/>

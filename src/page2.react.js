@@ -246,7 +246,7 @@ var Page2 = React.createClass({
                         <img style={swStyle} src="http://p4.qhimg.com/t0118d5aa446e9b406f.png" alt=""/>
                     </div>
                     <div className="p11-sec6">
-                        <img src="http://p7.qhimg.com/t01431d029704886bc3.png" alt=""/>
+                        <img src="http://p3.qhimg.com/d/inn/77f49597/p11-bottom.png" alt=""/>
                     </div>
                     <div className="p11-sec7">
                         <img src="http://p6.qhimg.com/t01fea3cc9884ca7c4b.png" alt=""/>

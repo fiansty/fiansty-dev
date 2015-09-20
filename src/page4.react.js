@@ -74,6 +74,12 @@ var Page4 = React.createClass({
         var deferred = Q.defer();
         //var $p3Title = $('.p3-title');
         //$p3Title.addClass('title-scale-anim');
+        //
+        //var $p3Addoil = $('.p3-addoil');
+        //var $p3Handsome = $('.p3-handsome');
+        //
+        //$p3Addoil.addClass('talk-scale-anim');
+        //$p3Handsome.addClass('talk-scale-anim');
         //$p3Title.on('webkitAnimationEnd', function() {
         //    $p3Title.removeClass('title-scale-anim');
         //    deferred.resolve();
@@ -82,12 +88,7 @@ var Page4 = React.createClass({
     },
     _sec4Animate: function () {
         var deferred = Q.defer();
-        //var $p3Addoil = $('.p3-addoil');
-        //var $p3Handsome = $('.p3-handsome');
-        //
-        //$p3Addoil.addClass('talk-scale-anim');
-        //$p3Handsome.addClass('talk-scale-anim');
-        //
+
         //$p3Addoil.on('webkitAnimationEnd', function() {
         //    $p3Addoil.removeClass('talk-scale-anim');
         //    $p3Handsome.removeClass('talk-scale-anim');
@@ -121,7 +122,7 @@ var Page4 = React.createClass({
         return (
             <div className="page3 pager" id="page3" style={style}>
                 <div className="p3-game">
-                    <img style={scale15} className="p3-title" src="http://p8.qhimg.com/t01e73eb02ef0a72727.png"/>
+                    <img style={scale15} className="p3-title" src="http://p7.qhimg.com/d/inn/d9e8a739/p3-game.png"/>
                 </div>
                 <div className="p3-dong">
                     <img style={scale0} className="p3-handsome"  src="http://p8.qhimg.com/t018001920b46ec7ec8.png"/>

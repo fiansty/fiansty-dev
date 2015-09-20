@@ -31,10 +31,10 @@ var Page1 = React.createClass({
         $('.logo-360 img').fadeIn(2000);
         $('.logo-xy img').fadeIn(2000);
         this.state.timeout = setTimeout(function () {
-            Q.fcall(me._sec1Animate)
-                .then(me._sec2Animate)
+            Q.fcall(me._sec2Animate)
                 .then(me._sec3Animate)
                 .then(me._sec4Animate)
+                .then(me._sec1Animate)
                 .catch(function (e) {
                     console.error(e);
                 })
@@ -85,7 +85,7 @@ var Page1 = React.createClass({
                     deferred.resolve();
                 }
             }.bind(this), 12);
-        }.bind(this), 2000);
+        }.bind(this), 100);
         return deferred.promise;
     },
     _sec2Animate: function () {
@@ -172,7 +172,7 @@ var Page1 = React.createClass({
             <div className="page1 pager" id="page0" style={style}>
                 <div className="p1-container">
                     <div className="p1-sec1">
-                        <img style={swStyle} src="http://p0.qhimg.com/t012e6aee24686577f2.png"/>
+                        <img style={swStyle} id="img1" src="http://p0.qhimg.com/t012e6aee24686577f2.png"/>
                     </div>
                     <div className="p1-sec2">
                         <img src="http://p7.qhimg.com/t01b3eac14cd4d2d651.png" alt=""/>

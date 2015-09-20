@@ -27,7 +27,9 @@ var App = React.createClass({
             complete: false,
             curTop: 0,
             styles: [],
-            turnType: '' //up down self
+            turnType: '', //up down self
+            ready: false,
+            readyRate: 0
         }
     },
     componentWillMount: function () {
@@ -44,56 +46,21 @@ var App = React.createClass({
             screenH: scrH,
             pages: arr
         });
-        var me = this;
-        setTimeout(function () {
-            me.setState({complete: true});
-        }, 1000);
-        setTimeout(function () {
-            me.refs.page1._play();
-            $('.music img').fadeIn();
-        }, 5000);
+
     },
     componentDidMount: function () {
+        this._loading();
         var arr = [];
         for(var i=0;i<this.state.pages.length;i++){
             arr.push($('.pager').eq(i).attr('style'));
         }
         this.setState({styles: arr});
-        var hammertime = new Hammer($('.page-list')[0], {});
-        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-        hammertime.on('pan', function(evt) {
-            var num = this.state.currentPage;
-            $('#page'+num).css({webkitTransform: 'translate3d(0px,'+evt.deltaY+'px,0px) scale3d(1, 1, 1)'});
-        }.bind(this));
 
-        hammertime.on('panend', function(evt) {
-            for(var i=0;i<this.state.pages.length;i++){
-                $('.pager').eq(i).attr({style:this.state.styles[i]});
-            }
-        }.bind(this));
-        hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+        this._touchEvt();
 
-        hammertime.on('swipe', function (evt) {
-            var num = this.state.currentPage;
-            if(evt.deltaY < -200){
-                if(num != this.state.pages.length-1){
-                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_down');
-                    this.setState({turnType: 'down'});
-                }else{
-                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
-                    this.setState({turnType: 'self'});
-                }
-            }else if(evt.deltaY > 200){
-                if(num != 0){
-                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_up');
-                    this.setState({turnType: 'up'});
-                }else{
-                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
-                    this.setState({turnType: 'self'});
-                }
-            }
-        }.bind(this));
-
+        this._turnAnimateEnd();
+    },
+    _turnAnimateEnd: function () {
         $('.pager').on('webkitTransitionEnd', function () {
             var num,top;
             if(this.state.turnType == 'down'){
@@ -129,10 +96,85 @@ var App = React.createClass({
             }
         }.bind(this));
     },
+    _touchEvt: function () {
+        var hammertime = new Hammer($('.page-list')[0], {});
+        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+        hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+        hammertime.on('pan', function(evt) {
+            var num = this.state.currentPage;
+            $('#page'+num).css({webkitTransform: 'translate3d(0px,'+evt.deltaY+'px,0px) scale3d(1, 1, 1)'});
+        }.bind(this));
+
+        hammertime.on('panend', function(evt) {
+            for(var i=0;i<this.state.pages.length;i++){
+                $('.pager').eq(i).attr({style:this.state.styles[i]});
+            }
+        }.bind(this));
+
+        hammertime.on('swipe', function (evt) {
+            var num = this.state.currentPage;
+            if(evt.deltaY < -200){
+                if(num != this.state.pages.length-1){
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_down');
+                    this.setState({turnType: 'down'});
+                }else{
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
+                    this.setState({turnType: 'self'});
+                }
+            }else if(evt.deltaY > 200){
+                if(num != 0){
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_up');
+                    this.setState({turnType: 'up'});
+                }else{
+                    $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
+                    this.setState({turnType: 'self'});
+                }
+            }
+        }.bind(this));
+    },
+    _loading: function () {
+        var interval = setInterval(function () {
+            if(this.state.readyRate < 95){
+                this.setState({readyRate: this.state.readyRate+5});
+            }else if(this.state.ready){
+                this.setState({complete: true});
+                clearInterval(interval);
+            }
+        }.bind(this), 100);
+        $(function(){
+            var imgdefereds=[];
+            $('img').each(function(){
+                var dfd=$.Deferred();
+                $(this).bind('load',function(){
+                    dfd.resolve();
+                }).bind('error',function(){
+                    //图片加载错误，加入错误处理
+                    //  dfd.resolve();
+                });
+                if(this.complete) setTimeout(function(){
+                    dfd.resolve();
+                },1000);
+                imgdefereds.push(dfd);
+            });
+            $.when.apply(null,imgdefereds).done(function(){
+                var me = this;
+                setTimeout(function () {
+                    me.setState({ready: true});
+                }, 100);
+                setTimeout(function () {
+                    me.refs.page1._play();
+                    $('.music img').fadeIn();
+                }, 500); // 全部图片加载完成触发的回调函数
+            }.bind(this));
+        }.bind(this));
+    },
     render: function () {
         return (
             <div className="container">
-                <div className="pending" style={{display: this.state.complete? 'none': 'block'}}>pending...</div>
+                <div className="pending" style={{display: this.state.complete? 'none': 'block'}}>
+                    <div className="pending-word">{this.state.readyRate}%</div>
+                </div>
                 <div className="wrapper" style={{display: this.state.complete? 'block': 'none'}}>
                     <div className="logo-360">
                         <img src="http://p8.qhimg.com/d/inn/42f741b8/360logo_03.png" alt=""/>
