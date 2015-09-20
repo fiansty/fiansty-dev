@@ -109,7 +109,7 @@ var App = React.createClass({
             top = '-' + parseInt(this.state.pages[num].top) + 'px';
             $('.page-list').css({webkitTransform:'translate3d(0px,'+ top +',0px) scale3d(1, 1, 1)'});
             for(var i=0;i<this.state.pages.length;i++){
-                $('.pager').eq(i).removeClass('page_down page_up self').attr({style:this.state.styles[i]});
+                $('.pager').eq(i).removeClass('page_down page_up page_self').attr({style:this.state.styles[i]});
             }
             if (num == 0) {
                 $('.logo-360 img').fadeIn(2000);
