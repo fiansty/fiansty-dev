@@ -38,7 +38,29 @@ var PageAdd1 = React.createClass({
         };
         return (
             <div className="page-add1 pager" id="page8" style={style}>
-
+                <div className="pa1-container">
+                    <div className="pa1-sec1">
+                        <img src="http://p7.qhimg.com/t0137e71825abbf916f.png" alt=""/>
+                    </div>
+                    <div className="pa1-sec2">
+                        <img src="http://p0.qhimg.com/t012bec782ae6b6f1a2.png" alt=""/>
+                    </div>
+                    <div className="pa1-sec3">
+                        <img src="http://p6.qhimg.com/t01527c04d8f8d805d8.png" alt=""/>
+                    </div>
+                    <div className="pa1-sec4">
+                        <img src="http://p7.qhimg.com/t01edc74ee0f5fe85a7.png" alt=""/>
+                    </div>
+                    <div className="pa1-word1">
+                        <img src="http://p6.qhimg.com/t01cd34ed538dbc66f8.png" alt=""/>
+                    </div>
+                    <div className="pa1-word2">
+                        <img src="http://p0.qhimg.com/t0109c65707ca3a52b0.png" alt=""/>
+                    </div>
+                    <div className="pa1-word3">
+                        <img src="http://p1.qhimg.com/t01bedcc491e71e2a38.png" alt=""/>
+                    </div>
+                </div>
             </div>
         );
     }

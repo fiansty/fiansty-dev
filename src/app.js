@@ -114,7 +114,7 @@ var App = React.createClass({
 
         hammertime.on('swipe', function (evt) {
             var num = this.state.currentPage;
-            if(evt.deltaY < -200){
+            if(evt.deltaY < -100){
                 if(num != this.state.pages.length-1){
                     $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_down');
                     this.setState({turnType: 'down'});
@@ -122,7 +122,7 @@ var App = React.createClass({
                     $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
                     this.setState({turnType: 'self'});
                 }
-            }else if(evt.deltaY > 200){
+            }else if(evt.deltaY > 100){
                 if(num != 0){
                     $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_up');
                     this.setState({turnType: 'up'});

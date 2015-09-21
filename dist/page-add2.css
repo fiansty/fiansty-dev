@@ -1,12 +1,70 @@
 .page-add2 {
-  background: url("http://p3.qhimg.com/d/inn/44935a98/10-bg.jpg") no-repeat left top;
+  background: #ffffff;
   width: 100%;
   position: absolute;
-  background-position: -38px;
   font-size: 2rem;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   z-index: 12;
+}
+.pa2-sec1 img {
+  top: 1rem;
+  left: 2rem;
+  width: 35.5rem;
+  position: absolute;
+}
+.pa2-sec2 img {
+  top: 1rem;
+  left: 31rem;
+  width: 28rem;
+  position: absolute;
+}
+.pa2-sec3 img {
+  top: 34rem;
+  left: 2rem;
+  width: 24rem;
+  position: absolute;
+}
+.pa2-sec4 img {
+  top: 34rem;
+  left: 27.2rem;
+  width: 31.8rem;
+  position: absolute;
+}
+.pa2-sec5 img {
+  top: 69rem;
+  left: 2rem;
+  width: 57rem;
+  position: absolute;
+}
+.pa2-sec5 img.animate {
+  -webkit-animation: sec5_animate 1s ease-in-out 1;
+}
+.pa2-word1 {
+  left: 28rem;
+  top: 29rem;
+  position: absolute;
+}
+.pa2-word2 {
+  left: 18rem;
+  top: 32rem;
+  position: absolute;
+}
+.pa2-word3 {
+  left: 45rem;
+  top: 67rem;
+  position: absolute;
+}
+@-webkit-keyframes sec5_animate {
+  0% {
+    -webkit-transform: rotate3d(1, 0, 0, -90deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(1, 0, 0, -45deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(1, 0, 0, 0deg);
+  }
 }
