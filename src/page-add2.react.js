@@ -23,7 +23,22 @@ var PageAdd2 = React.createClass({
     },
     _play: function () {
         this.setState({isHide: false});
-        $('.pa2-sec5 img').addClass('animate');
+        $('.pa2-sec1 img').addClass('animate');
+        setTimeout(function () {
+            $('.pa2-sec2 img').addClass('animate');
+            $('.pa2-word1').addClass('animate');
+        }, 1000);
+        setTimeout(function () {
+            $('.pa2-sec3 img').addClass('animate');
+        }, 2000);
+        setTimeout(function () {
+            $('.pa2-sec4 img').addClass('animate');
+            $('.pa2-word2').addClass('animate');
+        }, 3000);
+        setTimeout(function () {
+            $('.pa2-sec5 img').addClass('animate');
+            $('.pa2-word3').addClass('animate');
+        }, 4000);
     },
     _hide: function () {
         this.setState({isHide: true});

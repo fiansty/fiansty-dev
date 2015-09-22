@@ -62,38 +62,40 @@ var App = React.createClass({
     },
     _turnAnimateEnd: function () {
         $('.pager').on('webkitTransitionEnd', function () {
-            var num,top;
-            if(this.state.turnType == 'down'){
-                this.setState({currentPage: this.state.currentPage+1});
-                num = this.state.currentPage;
-            }else if(this.state.turnType == 'up'){
-                this.setState({currentPage: this.state.currentPage-1});
-                num = this.state.currentPage;
-            }else if(this.state.turnType == 'self'){
-                num = this.state.currentPage;
-            }
-            console.log(this.state.currentPage);
-            top = '-' + parseInt(this.state.pages[num].top) + 'px';
-            $('.page-list').css({webkitTransform:'translate3d(0px,'+ top +',0px) scale3d(1, 1, 1)'});
-            for(var i=0;i<this.state.pages.length;i++){
-                $('.pager').eq(i).removeClass('page_down page_up page_self').attr({style:this.state.styles[i]});
-            }
-            if (num == 0) {
-                $('.logo-360 img').fadeIn(2000);
-                $('.logo-xy img').fadeIn(2000);
-                $('.music').show();
-            } else {
-                $('.logo-360 img').hide();
-                $('.logo-xy img').hide();
-                $('.music').hide();
-            }
-            for (var i = 0; i < 12; i++) {
-                if (i == num) {
-                    this.refs['page' + (i + 1)]._play();
-                } else {
-                    this.refs['page' + (i + 1)]._hide();
+            setTimeout(function () {
+                var num,top;
+                if(this.state.turnType == 'down'){
+                    this.setState({currentPage: this.state.currentPage+1});
+                    num = this.state.currentPage;
+                }else if(this.state.turnType == 'up'){
+                    this.setState({currentPage: this.state.currentPage-1});
+                    num = this.state.currentPage;
+                }else if(this.state.turnType == 'self'){
+                    num = this.state.currentPage;
                 }
-            }
+                console.log(this.state.currentPage);
+                top = '-' + parseInt(this.state.pages[num].top) + 'px';
+                $('.page-list').css({webkitTransform:'translate3d(0px,'+ top +',0px) scale3d(1, 1, 1)'});
+                for(var i=0;i<this.state.pages.length;i++){
+                    $('.pager').eq(i).removeClass('page_down page_up page_self').attr({style:this.state.styles[i]});
+                }
+                if (num == 0) {
+                    $('.logo-360 img').fadeIn(2000);
+                    $('.logo-xy img').fadeIn(2000);
+                    $('.music').show();
+                } else {
+                    $('.logo-360 img').hide();
+                    $('.logo-xy img').hide();
+                    $('.music').hide();
+                }
+                for (var i = 0; i < 12; i++) {
+                    if (i == num) {
+                        this.refs['page' + (i + 1)]._play();
+                    } else {
+                        this.refs['page' + (i + 1)]._hide();
+                    }
+                }
+            }.bind(this), 500);
         }.bind(this));
     },
     _touchEvt: function () {

@@ -14,7 +14,11 @@
   position: absolute;
   top: -91rem;
   left: -20rem;
-  display: none;
+  opacity: 0;
+}
+.p1-container .p1-sec1 img.animate {
+  opacity: 1;
+  -webkit-animation: swing_animate 1s ease-in-out 1;
 }
 .p1-container .p1-sec2 img {
   position: absolute;
@@ -40,4 +44,26 @@
 .p1-container .p1-sec4 img {
   width: 1rem;
   opacity: 0;
+}
+@-webkit-keyframes swing_animate {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -8deg);
+  }
+  25% {
+    opacity: 1;
+    -webkit-transform: rotate3d(0, 0, 1, 7deg);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: rotate3d(0, 0, 1, -6deg);
+  }
+  75% {
+    opacity: 1;
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+  }
 }

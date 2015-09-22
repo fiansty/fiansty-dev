@@ -31,10 +31,10 @@ var Page1 = React.createClass({
         $('.logo-360 img').fadeIn(2000);
         $('.logo-xy img').fadeIn(2000);
         this.state.timeout = setTimeout(function () {
-            Q.fcall(me._sec2Animate)
+            Q.fcall(me._sec1Animate)
+                .then(me._sec2Animate)
                 .then(me._sec3Animate)
                 .then(me._sec4Animate)
-                .then(me._sec1Animate)
                 .catch(function (e) {
                     console.error(e);
                 })
@@ -72,20 +72,10 @@ var Page1 = React.createClass({
     },
     _sec1Animate: function () {
         var deferred = Q.defer();
+        $('.p1-sec1 img').addClass('animate');
         setTimeout(function () {
-            $('.p1-sec1 img').fadeIn();
-            var interval = null;
-            var deg = this._getDeg(0,10,2);
-            interval = setInterval(function () {
-                var d = deg.getnum();
-                if (d != null) {
-                    this.setState({deg: d});
-                } else {
-                    clearTimeout(interval);
-                    deferred.resolve();
-                }
-            }.bind(this), 12);
-        }.bind(this), 100);
+            deferred.resolve();
+        }.bind(this), 2000);
         return deferred.promise;
     },
     _sec2Animate: function () {
