@@ -24,20 +24,11 @@ var Page9 = React.createClass({
     },
     _play: function () {
         this.setState({isHide: false});
-        var me = this;
-        Q.fcall(me._zoom2Fade)
-            .then(me._zoom3Fade)
-            .then(me._personAnimate)
-            .catch(function (e) {
-                console.error(e);
-            })
-            .done();
-    },
-    _zoom2Fade: function () {
-        $('.p9-zoom2').fadeIn(2000);
-    },
-    _zoom3Fade: function () {
-        $('.p9-zoom3').fadeIn(2000);
+        $('.p9-zoom2').addClass('animate');
+        $('.p9-zoom3').addClass('animate');
+        setTimeout(function () {
+            $('.p9-person').addClass('animate');
+        }, 400);
     },
     _personAnimate: function () {
         $('.p9-person').animate({width: '40rem'});
@@ -57,9 +48,9 @@ var Page9 = React.createClass({
             <div className="page9 pager" id="page10" style={style}>
                 <div className="p9-container">
                     <div className="pic-box">
-                        <img className="p9-zoom1" src="http://p5.qhimg.com/d/inn/78ecca36/22.jpg" alt=""/>
-                        <img className="p9-zoom2" src="http://p1.qhimg.com/d/inn/3f515073/zoom2.jpg" alt=""/>
-                        <img className="p9-zoom3" src="http://p3.qhimg.com/d/inn/e4444e33/zoom3.jpg" alt=""/>
+                        <img className="p9-zoom1" src="http://p5.qhimg.com/d/inn/9e5e279f/1.jpg" alt=""/>
+                        <img className="p9-zoom2" src="http://p5.qhimg.com/d/inn/d09dd50e/2.jpg" alt=""/>
+                        <img className="p9-zoom3" src="http://p1.qhimg.com/d/inn/0105488e/3.jpg" alt=""/>
                     </div>
                     <img className="p9-person" src="http://p8.qhimg.com/t01b323449aee737534.png" alt=""/>
                 </div>

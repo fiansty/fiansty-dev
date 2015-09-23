@@ -135,6 +135,21 @@ var App = React.createClass({
             }
         }.bind(this));
     },
+    _turnDown: function () {
+        var num = this.state.currentPage;
+        $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_down');
+        this.setState({turnType: 'down'});
+    },
+    _turnUp: function () {
+        var num = this.state.currentPage;
+        $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_up');
+        this.setState({turnType: 'up'});
+    },
+    _turnSelf: function () {
+        var num = this.state.currentPage;
+        $('#page'+num).attr({'style': this.state.styles[num]}).addClass('page_self');
+        this.setState({turnType: 'self'});
+    },
     _loading: function () {
         var interval = setInterval(function () {
             if(this.state.readyRate < 95){

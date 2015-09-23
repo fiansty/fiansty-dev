@@ -86,3 +86,29 @@
   color: #fff;
   background: rgba(0, 0, 0, 0.15);
 }
+.page-arrow img {
+  position: absolute;
+  left: 50%;
+  margin-left: -105px;
+  bottom: 4rem;
+  cursor: pointer;
+  opacity: 0;
+}
+.page-arrow img.animate {
+  opacity: 1;
+  -webkit-animation: arrow_animate 2s ease-in-out infinite;
+}
+@-webkit-keyframes arrow_animate {
+  0%   {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+  }
+  80%   {
+    opacity: 1;
+    -webkit-transform: translate3d(0,50px,0);
+  }
+  100%  {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+  }
+}

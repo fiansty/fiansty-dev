@@ -12,6 +12,10 @@ gulp.task('clean', function () {
     del(['./dist/*.css', './dist/*.js'], {force: true});
 });
 
+gulp.task('clean2', function () {
+    del(['./pub/*.css'], {force: true});
+});
+
 gulp.task('build', ['clean'], function () {
     browserify('./src/app.js')
         .transform(reactify)
@@ -30,7 +34,7 @@ gulp.task('run', function () {
     gulp.start('build');
 });
 
-gulp.task('bundle', function () {
+gulp.task('bundle', ['clean2'], function () {
     return gulp.src('./bundle.config.js')
         .pipe(bundle())
         .pipe(gulp.dest('./pub'));

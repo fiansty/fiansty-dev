@@ -1,5 +1,6 @@
 var React = require('react');
 var Q = require('q');
+var Arrow = require('./arrow.react');
 
 var Page4 = React.createClass({
     getDefaultProps: function () {
@@ -37,6 +38,7 @@ var Page4 = React.createClass({
                     console.error(e);
                 }).done();
         }, 500);
+        this.refs.arrow._play();
     },
     _sec1Animate: function () {
         var deferred = Q.defer();
@@ -131,6 +133,7 @@ var Page4 = React.createClass({
                     <img style={scale0} className="p3-addoil" src="http://p6.qhimg.com/t0123fea6db2db4add7.png"/>
                 </div>
                 <div className="p3-dragon"></div>
+                <Arrow ref="arrow" clickCb={this.props.toPageFn} />
             </div>
         );
     }

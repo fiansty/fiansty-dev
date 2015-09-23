@@ -23,7 +23,19 @@ var PageAdd1 = React.createClass({
     },
     _play: function () {
         this.setState({isHide: false});
-        console.log('page-add1')
+        $('.pa1-sec1 img').addClass('animate');
+        setTimeout(function () {
+            $('.pa1-sec2 img').addClass('animate');
+            $('.pa1-word1').addClass('animate');
+        }, 500);
+        setTimeout(function () {
+            $('.pa1-sec3 img').addClass('animate');
+            $('.pa1-word2').addClass('animate');
+        }, 1000);
+        setTimeout(function () {
+            $('.pa1-sec4 img').addClass('animate');
+            $('.pa1-word3').addClass('animate');
+        }, 1500);
     },
     _hide: function () {
         this.setState({isHide: true});
