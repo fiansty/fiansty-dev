@@ -13,6 +13,7 @@ var Page9 = require('./page9.react');
 var Page10 = require('./page10.react');
 var PageAdd1 = require('./page-add1.react');
 var PageAdd2 = require('./page-add2.react');
+var PageAdd3 = require('./page-add3.react');
 var Music = require('./music.react');
 
 var App = React.createClass({
@@ -35,7 +36,7 @@ var App = React.createClass({
     componentWillMount: function () {
         var scrH = $(window).height();
         var arr = [];
-        for (var i = 0; i < 12; i++) {
+        for (var i = 0; i < 13; i++) {
             arr.push({
                 zIndex: i,
                 top: (scrH * i + 1) + 'px',
@@ -73,7 +74,7 @@ var App = React.createClass({
                 }else if(this.state.turnType == 'self'){
                     num = this.state.currentPage;
                 }
-                console.log(this.state.currentPage);
+                //console.log(this.state.currentPage);
                 top = '-' + parseInt(this.state.pages[num].top) + 'px';
                 $('.page-list').css({webkitTransform:'translate3d(0px,'+ top +',0px) scale3d(1, 1, 1)'});
                 for(var i=0;i<this.state.pages.length;i++){
@@ -88,7 +89,7 @@ var App = React.createClass({
                     $('.logo-xy img').hide();
                     $('.music').hide();
                 }
-                for (var i = 0; i < 12; i++) {
+                for (var i = 0; i < 13; i++) {
                     if (i == num) {
                         this.refs['page' + (i + 1)]._play();
                     } else {
@@ -105,6 +106,7 @@ var App = React.createClass({
 
         hammertime.on('pan', function(evt) {
             var num = this.state.currentPage;
+            //console.log(num);
             $('#page'+num).css({webkitTransform: 'translate3d(0px,'+evt.deltaY+'px,0px) scale3d(1, 1, 1)'});
         }.bind(this));
 
@@ -271,18 +273,25 @@ var App = React.createClass({
                                   ref="page10"
                                   toPageFn={this._turnDown}
                             />
+                        <PageAdd3 screenH={this.state.screenH}
+                                  top={this.state.pages[10].top}
+                                  zIndex={this.state.pages[10].zIndex}
+                                  background="#ffffff"
+                                  ref="page11"
+                                  toPageFn={this._turnDown}
+                            />
                         <Page9 screenH={this.state.screenH}
-                               top={this.state.pages[10].top}
-                               zIndex={this.state.pages[10].zIndex}
+                               top={this.state.pages[11].top}
+                               zIndex={this.state.pages[11].zIndex}
                                background="#ffffff"
-                               ref="page11"
+                               ref="page12"
                                toPageFn={this._turnDown}
                             />
                         <Page10 screenH={this.state.screenH}
-                                top={this.state.pages[11].top}
-                                zIndex={this.state.pages[11].zIndex}
+                                top={this.state.pages[12].top}
+                                zIndex={this.state.pages[12].zIndex}
                                 background="#ffffff"
-                                ref="page12"
+                                ref="page13"
                                 toPageFn={this._turnDown}
                             />
                     </div>

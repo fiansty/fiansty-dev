@@ -75,7 +75,7 @@ var Page1 = React.createClass({
         $('.p1-sec1 img').addClass('animate');
         setTimeout(function () {
             deferred.resolve();
-        }.bind(this), 2000);
+        }.bind(this), 200);
         return deferred.promise;
     },
     _sec2Animate: function () {

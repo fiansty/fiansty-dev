@@ -1,5 +1,6 @@
 var React = require('react');
 var Q = require('q');
+var Arrow = require('./arrow.react');
 
 var Page9 = React.createClass({
     getDefaultProps: function () {
@@ -34,7 +35,7 @@ var Page9 = React.createClass({
         $('.p9-person').animate({width: '40rem'});
     },
     _hide: function () {
-        this.setState({isHide: true});
+        $('#page11').css({visibility: 'hidden'});
     },
     render: function () {
         var style = {
@@ -45,7 +46,7 @@ var Page9 = React.createClass({
             "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
-            <div className="page9 pager" id="page10" style={style}>
+            <div className="page9 pager" id="page11" style={style}>
                 <div className="p9-container">
                     <div className="pic-box">
                         <img className="p9-zoom1" src="http://p5.qhimg.com/d/inn/9e5e279f/1.jpg" alt=""/>
@@ -54,6 +55,7 @@ var Page9 = React.createClass({
                     </div>
                     <img className="p9-person" src="http://p8.qhimg.com/t01b323449aee737534.png" alt=""/>
                 </div>
+                <Arrow ref="arrow" clickCb={this.props.toPageFn} />
             </div>
         );
     }

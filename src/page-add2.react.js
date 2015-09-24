@@ -1,5 +1,6 @@
 var React = require('react');
 var Q = require('q');
+var Arrow = require('./arrow.react');
 
 var PageAdd2 = React.createClass({
     getDefaultProps: function () {
@@ -79,6 +80,7 @@ var PageAdd2 = React.createClass({
                         <img src="http://p8.qhimg.com/t016576bf7b7ddacad5.png" alt=""/>
                     </div>
                 </div>
+                <Arrow ref="arrow" clickCb={this.props.toPageFn} />
             </div>
         );
     }
