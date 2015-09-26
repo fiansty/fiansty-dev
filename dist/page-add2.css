@@ -111,54 +111,65 @@
 @-webkit-keyframes sec1_animate {
   0% {
     opacity: 0;
+    transform: rotate3d(1, 1, 1, -120deg);
     -webkit-transform: rotate3d(1, 1, 1, -120deg);
   }
   100% {
     opacity: 1;
+    transform: rotate3d(1, 1, 1, 0deg);
     -webkit-transform: rotate3d(1, 1, 1, 0deg);
   }
 }
 @-webkit-keyframes sec2_animate {
   0% {
     opacity: 0;
+    transform: rotate3d(1, 1, 1, -120deg);
     -webkit-transform: rotate3d(1, 1, 1, -120deg);
   }
   100% {
     opacity: 1;
+    transform: rotate3d(1, 1, 1, 0deg);
     -webkit-transform: rotate3d(1, 1, 1, 0deg);
   }
 }
 @-webkit-keyframes sec3_animate {
   0% {
     opacity: 0;
+    transform: rotate3d(1, 1, 1, -120deg);
     -webkit-transform: rotate3d(1, 1, 1, -120deg);
   }
   100% {
     opacity: 1;
+    transform: rotate3d(1, 1, 1, 0deg);
     -webkit-transform: rotate3d(1, 1, 1, 0deg);
   }
 }
 @-webkit-keyframes sec4_animate {
   0% {
     opacity: 0;
+    transform: rotate3d(1, 1, 1, 120deg);
     -webkit-transform: rotate3d(1, 1, 1, 120deg);
   }
   100% {
     opacity: 1;
+    transform: rotate3d(1, 1, 1, 0deg);
     -webkit-transform: rotate3d(1, 1, 1, 0deg);
   }
 }
 @-webkit-keyframes sec5_animate {
   0% {
     opacity: 0;
+    transform: rotate3d(1, 0, 0, -90deg);
     -webkit-transform: rotate3d(1, 0, 0, -90deg);
   }
   50% {
     opacity: 0.5;
+    transform: rotate3d(1, 0, 0, 45deg);
     -webkit-transform: rotate3d(1, 0, 0, 45deg);
   }
   100% {
     opacity: 1;
+    transform: rotate3d(1, 0, 0, 0deg);
     -webkit-transform: rotate3d(1, 0, 0, 0deg);
   }
 }

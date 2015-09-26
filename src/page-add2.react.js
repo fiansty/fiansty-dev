@@ -53,7 +53,7 @@ var PageAdd2 = React.createClass({
             "visibility": this.state.isHide? 'hidden': 'visible'
         };
         return (
-            <div className="page-add2 pager" id="page9" style={style}>
+            <div className="page-add2 pager" id="page10" style={style}>
                 <div className="pa2-container">
                     <div className="pa2-sec1">
                         <img src="http://p5.qhimg.com/t01e84caa2a58d1ebac.png" alt=""/>

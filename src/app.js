@@ -266,14 +266,14 @@ var App = React.createClass({
                                   ref="page9"
                                   toPageFn={this._turnDown}
                             />
-                        <PageAdd2 screenH={this.state.screenH}
+                        <PageAdd3 screenH={this.state.screenH}
                                   top={this.state.pages[9].top}
                                   zIndex={this.state.pages[9].zIndex}
                                   background="#ffffff"
                                   ref="page10"
                                   toPageFn={this._turnDown}
                             />
-                        <PageAdd3 screenH={this.state.screenH}
+                        <PageAdd2 screenH={this.state.screenH}
                                   top={this.state.pages[10].top}
                                   zIndex={this.state.pages[10].zIndex}
                                   background="#ffffff"
