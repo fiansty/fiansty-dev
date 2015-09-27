@@ -72,13 +72,13 @@ var Page5 = React.createClass({
             <div className="page-5 pager" id="page4" style={style}>
                 <div className="p5-Container">
                     <div className="p5-sec1">
-                        <img src="http://p6.qhimg.com/t011351490412d0e6d5.png" alt=""/>
+                        <img src="http://p3.qhimg.com/d/inn/cd9dbb41/d/p6.png" alt=""/>
                     </div>
                     <div className="p5-sec2">
-                        <img src="http://p2.qhimg.com/t01b9a265b4326eb45b.png" alt=""/>
+                        <img src="http://p4.qhimg.com/d/inn/1055a1d2/1.png" alt=""/>
                     </div>
                     <div className="p5-sec3">
-                        <img src="http://p5.qhimg.com/t0169167edce601ed40.png" alt=""/>
+                        <img src="http://p4.qhimg.com/d/inn/63dc72da/7.png" alt=""/>
                     </div>
                     <div className="p5-word1">
                         <img src="http://p1.qhimg.com/t0122c6c9d693fcd010.png" alt=""/>

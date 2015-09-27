@@ -60,6 +60,14 @@ var App = React.createClass({
         this._touchEvt();
 
         this._turnAnimateEnd();
+
+        console.log("飞扬是奇虎360公司的校招生培训部门");
+        console.log("每期都有上百名校招生在这里互相学习、沟通");
+        console.log("17期为期一个月的新员工培训结束后...");
+        console.log("我们的友谊并没有结束，而是刚刚开始");
+        console.log("如果你想结识更多与你一样优秀的人，请加入我们");
+        console.log("power by : %c 朱英达 - 奇虎360 2015届校招生 web工程师", "color: red");
+        console.log("mail: %c yingdazhu@icloud.com", "color:blue");
     },
     _turnAnimateEnd: function () {
         $('.pager').on('webkitTransitionEnd', function () {
@@ -153,6 +161,26 @@ var App = React.createClass({
         this.setState({turnType: 'self'});
     },
     _loading: function () {
+        var imgdefereds=[];
+
+        var hasLoad = [];
+
+        setTimeout(function () {
+            var me = this;
+            if (me.state.ready == false) {
+                if(hasLoad.length > 80){
+                    me.setState({ready: true});
+                    me.refs.page1._play();
+                    $('.music img').fadeIn();
+                } else{
+                    alert('当前网络环境较差，播放效果无法保证，建议更换其他网络环境重新加载。');
+                    me.setState({ready: true});
+                    me.refs.page1._play();
+                    $('.music img').fadeIn();
+                }
+            }
+        }.bind(this), 15000);
+
         var interval = setInterval(function () {
             if(this.state.readyRate < 95){
                 this.setState({readyRate: this.state.readyRate+5});
@@ -162,20 +190,22 @@ var App = React.createClass({
             }
         }.bind(this), 100);
         $(function(){
-            var imgdefereds=[];
             $('img').each(function(){
                 var dfd=$.Deferred();
                 $(this).bind('load',function(){
+                    hasLoad.push(dfd);
                     dfd.resolve();
-                }).bind('error',function(){
+                }.bind(this)).bind('error',function(){
                     //图片加载错误，加入错误处理
                     //  dfd.resolve();
                 });
                 if(this.complete) setTimeout(function(){
+                    hasLoad.push(dfd);
                     dfd.resolve();
                 },1000);
                 imgdefereds.push(dfd);
             });
+
             $.when.apply(null,imgdefereds).done(function(){
                 var me = this;
                 setTimeout(function () {

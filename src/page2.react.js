@@ -234,19 +234,19 @@ var Page2 = React.createClass({
                         <img  src="http://p0.qhimg.com/t0187f59920e47009f0.png"/>
                     </div>
                     <div className="p11-sec2">
-                        <img src="http://p8.qhimg.com/t017e0a9f5c5b66f7b7.png" alt=""/>
+                        <img src="http://p5.qhimg.com/d/inn/cd9dbb41/d/p27.png" alt=""/>
                     </div>
                     <div className="p11-sec3">
                         <img src="http://p6.qhimg.com/t01c10bbc5b6c9d6c29.png" alt=""/>
                     </div>
                     <div className="p11-sec4">
-                        <img src="http://p7.qhimg.com/d/inn/10b8dbbb/p11-right1.png" alt=""/>
+                        <img src="http://p6.qhimg.com/d/inn/cd9dbb41/d/p28.png" alt=""/>
                     </div>
                     <div className="p11-sec5">
                         <img style={swStyle} src="http://p4.qhimg.com/t0118d5aa446e9b406f.png" alt=""/>
                     </div>
                     <div className="p11-sec6">
-                        <img src="http://p3.qhimg.com/d/inn/77f49597/p11-bottom.png" alt=""/>
+                        <img src="http://p3.qhimg.com/d/inn/cd9dbb41/d/p22.png" alt=""/>
                     </div>
                     <div className="p11-sec7">
                         <img src="http://p6.qhimg.com/t01fea3cc9884ca7c4b.png" alt=""/>

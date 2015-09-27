@@ -49,9 +49,9 @@ var Page9 = React.createClass({
             <div className="page9 pager" id="page11" style={style}>
                 <div className="p9-container">
                     <div className="pic-box">
-                        <img className="p9-zoom1" src="http://p5.qhimg.com/d/inn/9e5e279f/1.jpg" alt=""/>
-                        <img className="p9-zoom2" src="http://p5.qhimg.com/d/inn/d09dd50e/2.jpg" alt=""/>
-                        <img className="p9-zoom3" src="http://p1.qhimg.com/d/inn/0105488e/3.jpg" alt=""/>
+                        <img className="p9-zoom1" src="http://p6.qhimg.com/d/inn/cd9dbb41/d/p3.jpg" alt=""/>
+                        <img className="p9-zoom2" src="http://p0.qhimg.com/d/inn/cd9dbb41/d/p1.jpg" alt=""/>
+                        <img className="p9-zoom3" src="http://p8.qhimg.com/d/inn/c7b04912/2.jpg" alt=""/>
                     </div>
                     <img className="p9-person" src="http://p8.qhimg.com/t01b323449aee737534.png" alt=""/>
                 </div>

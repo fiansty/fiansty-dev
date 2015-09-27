@@ -75,7 +75,7 @@ var Page6 = React.createClass({
                         <img src="http://p7.qhimg.com/d/inn/e2badcfe/p6-sec2.png" alt=""/>
                     </div>
                     <div className="p6-sec3">
-                        <img src="http://p0.qhimg.com/t01c363c9c44ac61ade.png" alt=""/>
+                        <img src="http://p2.qhimg.com/d/inn/e58bc307/4.png" alt=""/>
                     </div>
                     <div className="p6-word1">
                         <img src="http://p0.qhimg.com/t012d898db48b71e7d3.png" alt=""/>

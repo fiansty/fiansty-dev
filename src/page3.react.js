@@ -106,7 +106,7 @@ var Page5 = React.createClass({
                 </div>
                 <div className="p5_center">
                     <div className="p5_center_all">
-                        <img src="http://p4.qhimg.com/t01a0ee4c9ceabab7d4.png" className="p5_center_all_png"/>
+                        <img src="http://p7.qhimg.com/d/inn/cd9dbb41/d/p24.png" className="p5_center_all_png"/>
                     </div>
                     <div className="p5_center_spacile">
                         <img src="http://p2.qhimg.com/t01e99cb0b279fb3a95.png" className="p5_center_spacile_png"/>

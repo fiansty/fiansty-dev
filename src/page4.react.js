@@ -124,7 +124,7 @@ var Page4 = React.createClass({
         return (
             <div className="page3 pager" id="page3" style={style}>
                 <div className="p3-game">
-                    <img style={scale15} className="p3-title" src="http://p7.qhimg.com/d/inn/d9e8a739/p3-game.png"/>
+                    <img style={scale15} className="p3-title" src="http://p7.qhimg.com/d/inn/f35a2085/3.png"/>
                 </div>
                 <div className="p3-dong">
                     <img style={scale0} className="p3-handsome"  src="http://p8.qhimg.com/t018001920b46ec7ec8.png"/>

@@ -60,13 +60,13 @@ var Page1 = React.createClass({
           <div className="page10 pager" id="page12" style={style}>
               <div className="p10-container">
                   <div className="p10-sec0-bgc">
-                      <img src="http://p3.qhimg.com/t015238a5647b8ecb65.png" alt=""/>
+                      <img src="http://p1.qhimg.com/d/inn/cd9dbb41/d/p5.png" alt=""/>
                   </div>
                   <div className="p10-sec0-linear">
                       <img src="http://p3.qhimg.com/t01ebf7911749b7249b.png" alt=""/>
                   </div>
 				  <div className="p10-sec0-share">
-                      <img src="http://p4.qhimg.com/t013a0b426898d86423.jpg" alt=""/>
+                      <img src="http://p1.qhimg.com/d/inn/cd9dbb41/d/p29.jpg" alt=""/>
                   </div>
                   <div className="p10-sec0">
                       <img src="http://p1.qhimg.com/t018aecdb3a1335aa94.png" alt=""/>
